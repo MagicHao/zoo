@@ -1205,7 +1205,7 @@ class Auth extends Illuminate\Support\Facades\Auth{
     /**
      * Get the currently authenticated user.
      *
-     * @return \Illuminate\Auth\UserInterface|null
+     * @return \Illuminate\Auth\UserInterface|null|User
      * @static
      */
     public static function user(){

@@ -49,7 +49,7 @@ class AccountsController extends BaseController {
             return Redirect::to('accounts/login')->withErrors($validator)->withInput();
         } else {
             if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
-                return Redirect::intended('accounts/profile')->with('redirect_notice', '登录成功。');
+                return Redirect::intended(join('/', array('u', Auth::user()->id)))->with('redirect_notice', '登录成功。');
             } else {
                 return Redirect::to('accounts/login')->with('redirect_notice', '用户名不存在或密码错误。')->withInput();
             }
