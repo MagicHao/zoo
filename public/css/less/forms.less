@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+.form-text{
+  .border-radius(2px);
+  border: 1px solid @input-color-border;
+  .box-shadow(0 0 3px rgba(0, 0, 0, 0.1) inset);
+  .padding(0 5px);
+  height: 30px;
+}
+
+.form-type-1{
+  .form-tip{
+    color: @darkGray;
+  }
+  .form-row{
+    .padding(10px 0);
+    label{
+      width: 120px;
+      height: 30px;
+      display: inline-block;
+    }
+    .form-text{
+      width: 300px;
+    }
+  }
+  .form-errors{
+    overflow: hidden;
+    .padding(0 10px);
+    border-left: 3px solid @color-error;
+    color: @color-error;
+    li{
+      list-style-position: inside;
+    }
+  }
+}

@@ -3,6 +3,13 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+/**
+ * Class User
+ * @property $email String
+ * @property $username String
+ * @property $password String
+ */
+
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
@@ -18,6 +25,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password');
+
+    public static $validatorRules = array(
+        'email'=>'required|email|unique:users',
+        'username'=>'required|unique:users|min:3|max:10',
+        'password'=>'required|min:6|max:16',
+        'repeat-password'=>'required|same:password',
+    );
 
 	/**
 	 * Get the unique identifier for the user.

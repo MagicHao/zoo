@@ -1,0 +1,22 @@
+@import "mixins";
+@import "variables";
+
+.btn{
+  color: @black;
+  font-size: 14px;
+  .border-radius(3px);
+  background-color: @btn-color-background;
+  border: 1px solid @btn-color-border;
+  height: 30px;
+  .padding(0 15px);
+  &:hover{
+    background-color: @btn-color-background-hover;
+    borer: @btn-color-border-hover;
+  }
+}
+
+a.btn{
+  line-height: 30px;
+  text-decoration: none;
+  display: inline-block;
+}

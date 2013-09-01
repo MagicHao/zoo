@@ -13,5 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
 });
+
+Route::get('u/{id}', function($id){
+    $user = User::find($id);
+    if ($user) {
+        return View::make('u')->with('user', $user);
+    } else {
+        App::abort(404, 'Page not found');
+    }
+})->where('id', '[0-9]+');
+
+Route::controller('accounts', 'AccountsController');
