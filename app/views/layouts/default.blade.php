@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo URL::asset('css/normalize.css') ?>"/>
     <link rel="stylesheet" href="<?php echo URL::asset('css/style.css') ?>"/>
+    <script type="text/javascript" src="<?php echo URL::asset('js/jquery.js') ?>"></script>
 </head>
 <body>
 
@@ -17,8 +18,14 @@
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/register') ?>">注册</a></li>
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/login') ?>">登录</a></li>
         @else
-        <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/profile') ?>">{{Auth::user()->username}}</a></li>
-        <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/logout') ?>">退出</a></li>
+        <li class="global-nav-bar-item dropdown">
+            <a data-toggle="dropdown" href="<?php echo URL::to(join('/', array('u', Auth::user()->id))) ?>">{{Auth::user()->username}}</a>
+            <ul class="dropdown-menu">
+                <li><a href="<?php echo URL::to(join('/', array('u', Auth::user()->id))) ?>">个人主页</a></li>
+                <li><a href="<?php echo URL::to('accounts/profile') ?>">账户设置</a></li>
+                <li><a href="<?php echo URL::to('accounts/logout') ?>">退出</a></li>
+            </ul>
+        </li>
         @endif
     </ul>
 </div>
@@ -26,6 +33,20 @@
 @include('layouts.header')
 
 @yield('content', '暂无显示内容。')
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('body').on('click', '.dropdown', function(e){
+            var $target = $(e.target);
+            if ($target.data('toggle') == 'dropdown') {
+                var $dropdownMenu = $(this).find('.dropdown-menu');
+                $dropdownMenu.toggle();
+                $('.dropdown-menu').not($dropdownMenu).hide();
+                e.preventDefault();
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

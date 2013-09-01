@@ -149,3 +149,31 @@ a.btn {
   text-decoration: none;
   display: inline-block;
 }
+.dropdown {
+  position: relative;
+}
+.dropdown .dropdown-menu {
+  display: none;
+  padding: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  list-style: none;
+  position: absolute;
+  background-color: #fff;
+  top: 40px;
+  right: 0;
+  text-align: center;
+  border: 1px solid #cccccc;
+}
+.dropdown .dropdown-menu li a {
+  line-height: 35px;
+  display: block;
+  width: 100px;
+  color: black;
+  padding: 0 10px;
+}
+.dropdown .dropdown-menu li a:hover {
+  color: darkgray;
+  background-color: #e6e6e6;
+}

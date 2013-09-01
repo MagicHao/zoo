@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+.dropdown{
+  position: relative;
+  .dropdown-menu{
+    display: none;
+    .padding(0);
+    .border-radius(2px);
+    list-style: none;
+    position: absolute;
+    background-color: #fff;
+    top: @global-nav-bar-height;
+    right: 0;
+    text-align: center;
+    border: 1px solid @input-color-border;
+    li{
+      a{
+        line-height: 35px;
+        display: block;
+        width: 100px;
+        color: black;
+        .padding(0 10px);
+        &:hover{
+          color: darkgray;
+          background-color: @lightGray;
+        }
+      }
+    }
+  }
+}
