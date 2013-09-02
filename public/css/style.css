@@ -44,9 +44,10 @@ h1 {
 }
 .global-nav-bar .global-nav-bar-item {
   float: left;
-  padding: 0 15px;
 }
 .global-nav-bar .global-nav-bar-item a {
+  display: block;
+  padding: 0 15px;
   color: #e6e6e6;
   text-decoration: none;
 }

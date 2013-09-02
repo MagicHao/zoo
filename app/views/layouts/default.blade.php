@@ -36,15 +36,11 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('body').on('click', '.dropdown', function(e){
-            var $target = $(e.target);
-            if ($target.data('toggle') == 'dropdown') {
-                var $dropdownMenu = $(this).find('.dropdown-menu');
-                $dropdownMenu.toggle();
-                $('.dropdown-menu').not($dropdownMenu).hide();
-                e.preventDefault();
-            }
-        });
+        $('body').on('mouseover', '.dropdown', function(e){
+            $(this).find('.dropdown-menu').show();
+        }).on('mouseout', '.dropdown', function(e){
+                $(this).find('.dropdown-menu').hide();
+            });
     });
 </script>
 
