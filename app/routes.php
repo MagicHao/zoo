@@ -25,4 +25,6 @@ Route::get('u/{id}', function($id){
     }
 })->where('id', '[0-9]+');
 
+Route::controller('pet', 'PetController');
+
 Route::controller('accounts', 'AccountsController');

@@ -42,7 +42,7 @@
             <input class="form-text" type="text" name="username" id="username" placeholder="用户名"  value="<?php echo Input::old('username') ?>"/>
         </div>
         <div class="form-row">
-            <input type="submit" class="btn" value="注册"/>
+            <input type="submit" class="btn btn-primary" value="注册"/>
         </div>
         <?php echo Form::close() ?>
     </div>

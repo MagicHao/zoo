@@ -4,19 +4,37 @@
 .btn{
   color: @black;
   font-size: 14px;
+  font-weight: normal;
   .border-radius(3px);
   background-color: @btn-color-background;
   border: 1px solid @btn-color-border;
   height: 30px;
+  line-height: 30px;
   .padding(0 15px);
-  &:hover{
-    background-color: @btn-color-background-hover;
-    borer: @btn-color-border-hover;
+  &:hover, &:focus{
+    background-color: darken(@btn-color-background, 5%);
+    border: 1px solid darken(@btn-color-border, 5%);
+  }
+}
+
+.btn-primary{
+  color: @white;
+  background-color: @btn-primary-color-background;
+  border: 1px solid @btn-primary-color-border;
+  &:hover, &:focus{
+    background-color: darken(@btn-primary-color-background, 5%);
+    border: 1px solid darken(@btn-primary-color-border, 5%);
   }
 }
 
 a.btn{
-  line-height: 30px;
   text-decoration: none;
   display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6{
+  .btn{
+    height: 24px;
+    line-height: 24px;
+  }
 }

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
             $table->string('email', 32)->unique();
             $table->string('username', '12')->unique();
             $table->string('password', '64');
+            $table->string('avatar', '64')->default('');
             $table->string('num_of_pets')->default(0);
             $table->integer('num_of_followed_pets')->default(0);
             $table->integer('num_of_posts')->default(0);

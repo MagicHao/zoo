@@ -51,7 +51,7 @@ return array(
     "not_in"           => ":attribute 不在有效范围内.",
     "numeric"          => ":attribute 只能为数字.",
     "regex"            => ":attribute 格式不正确.",
-    "required"         => ":attribute 不可为空.",
+    "required"         => ":attribute 是必填项.",
     "required_if"      => "当 :other 的值为 :value 时, :attribute 为必填内容.",
     "required_with"    => "当 :values 不为空时, :attribute 也不可为空.",
     "required_without" => "当 :values 为空时, :attribute 不可为空.",

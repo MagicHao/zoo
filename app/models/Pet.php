@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
-
 /**
  * Class User
  * @property $id Integer
@@ -14,21 +11,21 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property $pets Pet[]
  */
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class Pet extends Eloquent  {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'pets';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+	protected $hidden = array('');
 
     public static $validatorRules = array(
         'email'=>'required|email|unique:users',
@@ -37,36 +34,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'repeat-password'=>'required|same:password',
     );
 
-	/**
-	 * Get the unique identifier for the user.
-	 *
-	 * @return mixed
-	 */
-	public function getAuthIdentifier()
-	{
-		return $this->getKey();
-	}
-
-	/**
-	 * Get the password for the user.
-	 *
-	 * @return string
-	 */
-	public function getAuthPassword()
-	{
-		return $this->password;
-	}
-
-	/**
-	 * Get the e-mail address where password reminders are sent.
-	 *
-	 * @return string
-	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
-
     public function getAvatarAttribute($value)
     {
         return empty($value) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->id, $value);
@@ -74,7 +41,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function pets()
     {
-        return $this->hasMany('Pet');
+        return $this->hasOne('Pet');
     }
 
 }

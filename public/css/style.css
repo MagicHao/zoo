@@ -10,6 +10,21 @@ body {
 h1 {
   font-size: 24px;
 }
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14;
+}
+h6 {
+  font-size: 12px;
+}
 .underline {
   border-bottom: 1px solid #cccccc;
 }
@@ -18,7 +33,7 @@ h1 {
   font-size: 12px;
   height: 40px;
   line-height: 40px;
-  background-color: #e05a12;
+  background-color: #f47063;
   *zoom: 1;
 }
 .global-nav-bar:before,
@@ -77,7 +92,12 @@ h1 {
   width: 960px;
   margin: 0 auto;
 }
-#content h1 {
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
   border-bottom: 1px solid #cccccc;
   padding: 5px 0;
 }
@@ -116,6 +136,7 @@ h1 {
 .form-type-1 .form-row label {
   width: 120px;
   height: 30px;
+  line-height: 30px;
   display: inline-block;
 }
 .form-type-1 .form-row .form-text {
@@ -133,22 +154,43 @@ h1 {
 .btn {
   color: #000000;
   font-size: 14px;
+  font-weight: normal;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
   height: 30px;
+  line-height: 30px;
   padding: 0 15px;
 }
-.btn:hover {
-  background-color: #eeeeee;
-  borer: #bbbbbb;
+.btn:hover,
+.btn:focus {
+  background-color: #f2f2f2;
+  border: 1px solid #bfbfbf;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #f47063;
+  border: 1px solid #ef6256;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #f25a4b;
+  border: 1px solid #ed4c3f;
 }
 a.btn {
-  line-height: 30px;
   text-decoration: none;
   display: inline-block;
+}
+h1 .btn,
+h2 .btn,
+h3 .btn,
+h4 .btn,
+h5 .btn,
+h6 .btn {
+  height: 24px;
+  line-height: 24px;
 }
 .dropdown {
   position: relative;

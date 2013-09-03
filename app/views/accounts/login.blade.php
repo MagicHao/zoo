@@ -37,7 +37,7 @@
             <input class="form-text" type="password" name="password" id="password" placeholder="密码"/>
         </div>
         <div class="form-row">
-            <input type="submit" class="btn" value="登录"/>
+            <input type="submit" class="btn btn-primary" value="登录"/>
         </div>
         <?php echo Form::close() ?>
     </div>
