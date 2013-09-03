@@ -34,10 +34,6 @@
             <input class="form-text" type="password" name="password" id="password" placeholder="密码"/>
         </div>
         <div class="form-row">
-            <label for="repeat-password">重复密码</label>
-            <input class="form-text" type="password" name="repeat-password" id="repeat-password" placeholder="重复密码"/>
-        </div>
-        <div class="form-row">
             <label for="username">用户名或昵称</label>
             <input class="form-text" type="text" name="username" id="username" placeholder="用户名"  value="<?php echo Input::old('username') ?>"/>
         </div>
