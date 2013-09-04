@@ -93,6 +93,8 @@ return array(
         'username'          =>  '用户名',
         'password'          =>  '密码',
         'repeat-password'   =>  '重复密码',
+        'name'              =>  '名称',
+        'gender'            =>  '性别',
     ),
 
 );

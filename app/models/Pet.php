@@ -1,14 +1,12 @@
 <?php
 
 /**
- * Class User
+ * Class Pet
  * @property $id Integer
- * @property $email String
- * @property $username String
- * @property $password String
- * @property $avatar String
+ * @property $name String
+ * @property $gender String
  *
- * @property $pets Pet[]
+ * @property $user User
  */
 
 class Pet extends Eloquent  {
@@ -28,10 +26,8 @@ class Pet extends Eloquent  {
 	protected $hidden = array('');
 
     public static $validatorRules = array(
-        'email'=>'required|email|unique:users',
-        'username'=>'required|unique:users|min:3|max:10',
-        'password'=>'required|min:6|max:16',
-        'repeat-password'=>'required|same:password',
+        'name'=>'required',
+        'gender'=>'required|in:m,f,s'
     );
 
     public function getAvatarAttribute($value)
@@ -39,9 +35,9 @@ class Pet extends Eloquent  {
         return empty($value) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->id, $value);
     }
 
-    public function pets()
+    public function user()
     {
-        return $this->hasOne('Pet');
+        return $this->belongsTo('User');
     }
 
 }

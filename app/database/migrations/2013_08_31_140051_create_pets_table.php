@@ -11,6 +11,7 @@ class CreatePetsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name', '12')->unique();
+            $table->enum('gender', array('f', 'm', 's'));
             $table->string('num_of_posts')->default(0);
             $table->integer('num_of_fans')->default(0);
             $table->integer('num_of_visits')->default(0);

@@ -26,5 +26,12 @@ h6{
 }
 
 .underline{
-  border-bottom: 1px solid @btn-color-border;
+   border-bottom: 1px solid @btn-color-border;
+ }
+
+h1, h2, h3, h4, h5, h6{
+  &.title{
+    .underline;
+    .padding(5px 0);
+  }
 }

@@ -9,7 +9,7 @@ body{
 @import "type";
 
 .global-nav-bar{
-  min-width: 960px;
+  min-width: @grid-width;
   font-size: @font-size-small;
   height: @global-nav-bar-height;
   line-height: @global-nav-bar-height;
@@ -43,9 +43,8 @@ body{
 #header{
   background-color: @header-background-color;
   .header-inner{
-    width: 960px;
-    .margin(0 auto);
-    .padding(10px 0);
+    padding-top: 10px;
+    padding-bottom: 10px;
     .logo{
       font-size: 30px;
       .margin(0);
@@ -60,34 +59,11 @@ body{
   }
 }
 
-#content{
-  width: 960px;
-  .margin(0 auto);
-  h1, h2, h3, h4, h5, h6{
-    .underline;
-    .padding(5px 0);
-  }
-}
-
-.centered-content{
-  .padding(0 100px);
-}
-
 .clearfix {
-  *zoom: 1;
-  &:before,
-  &:after {
-    display: table;
-    content: "";
-    // Fixes Opera/contenteditable bug:
-    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-    line-height: 0;
-  }
-  &:after {
-    clear: both;
-  }
+  .clearfix();
 }
 
+@import "grid";
 @import "forms";
 @import "buttons";
 @import "dropdown";

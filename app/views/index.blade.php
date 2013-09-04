@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div id="content">
+<div id="content" class="container">
 
 </div>
 
