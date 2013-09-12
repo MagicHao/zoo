@@ -1,0 +1,29 @@
+@import "../variables";
+@import "../mixins";
+@import "../untitled";
+
+.pet-profile{
+  line-height: 24px;
+  .clearfix;
+  .pet-profile-avatar{
+    .pull-left;
+  }
+  .pet-profile-content{
+    a{
+      color: @orange;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    font-size: @font-size-small;
+    padding: 0 10px;
+    .pull-left;
+    .pet-profile-item{
+      &.pet-profile-name{
+        font-size: @font-size-normal;
+        font-weight: 800;
+      }
+    }
+  }
+}

@@ -6,40 +6,40 @@
 
 @section('content')
 
-<div id="content" class="container">
-    <div class="row">
-        <div class="col-8 col-push-2">
-            <h1 class="title">注册</h1>
+<div id="content" class="ui-container">
+    <div class="ui-grid-row">
+        <div class="ui-grid-15 ui-grid-push-5">
+            <h1 class="ui-title">注册</h1>
 
-            <?php echo Form::open(array('class'=>'form-type-1')) ?>
-            <div class="form-row form-tip">
+            <?php echo Form::open(array('class'=>'ui-form')) ?>
+
+            <div class="ui-form-item form-tip">
                 您正在注册本站独立帐号
             </div>
 
-            @if ($errors->any())
-            <div class="form-row">
-                <ol class="form-errors">
-                    @foreach ($errors->all() as $message)
-                    <li>{{$message}}</li>
-                    @endforeach
-                </ol>
+            <div class="ui-form-item{{$errors->has('email') ? ' ui-form-item-error' : ''}}">
+                <label class="ui-label" for="email">E-mail</label>
+                <input class="ui-input" type="text" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>"/>
+                @if ($errors->has('email'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('email')}}</p>
+                @endif
             </div>
-            @endif
-
-            <div class="form-row">
-                <label for="email">E-mail</label>
-                <input class="form-text" type="text" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>"/>
+            <div class="ui-form-item{{$errors->has('password') ? ' ui-form-item-error' : ''}}">
+                <label class="ui-label" for="password">密码</label>
+                <input class="ui-input" type="password" name="password" id="password" placeholder="密码"/>
+                @if ($errors->has('password'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('password')}}</p>
+                @endif
             </div>
-            <div class="form-row">
-                <label for="password">密码</label>
-                <input class="form-text" type="password" name="password" id="password" placeholder="密码"/>
+            <div class="ui-form-item{{$errors->has('username') ? ' ui-form-item-error' : ''}}">
+                <label class="ui-label" for="username">用户名或昵称</label>
+                <input class="ui-input" type="text" name="username" id="username" placeholder="用户名"  value="<?php echo Input::old('username') ?>"/>
+                @if ($errors->has('username'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('username')}}</p>
+                @endif
             </div>
-            <div class="form-row">
-                <label for="username">用户名或昵称</label>
-                <input class="form-text" type="text" name="username" id="username" placeholder="用户名"  value="<?php echo Input::old('username') ?>"/>
-            </div>
-            <div class="form-row">
-                <input type="submit" class="btn btn-primary" value="注册"/>
+            <div class="ui-form-item">
+                <input type="submit" class="ui-button ui-button-morange" value="注册"/>
             </div>
             <?php echo Form::close() ?>
         </div>

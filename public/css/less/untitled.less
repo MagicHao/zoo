@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import "variables.less";
+@import "mixins.less";
 
 .pull-left{
   float: left;
@@ -7,4 +7,31 @@
 
 .pull-right{
   float: right;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
 }

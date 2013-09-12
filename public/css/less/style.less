@@ -1,12 +1,15 @@
 @import "variables";
 @import "mixins";
 
+@import "normalize.less";
+
 body{
-  font-family: Arial;
+  font-family: "Microsoft Yahei";
+  font-size: @font-size-normal;
 }
 
-@import "untitled";
 @import "type";
+@import "untitled";
 
 .global-nav-bar{
   min-width: @grid-width;
@@ -31,7 +34,7 @@ body{
     a{
       display: block;
       .padding(0 15px);
-      color: @lightGray;
+      color: darken(@white, 10%);
       text-decoration: none;
       &:hover{
         color: @white;
@@ -45,6 +48,7 @@ body{
   .header-inner{
     padding-top: 10px;
     padding-bottom: 10px;
+    .text-center;
     .logo{
       font-size: 30px;
       .margin(0);
@@ -59,11 +63,11 @@ body{
   }
 }
 
-.clearfix {
-  .clearfix();
-}
-
 @import "grid";
 @import "forms";
 @import "buttons";
 @import "dropdown";
+@import "tipbox";
+@import "tiptext";
+
+@import "sites/u";

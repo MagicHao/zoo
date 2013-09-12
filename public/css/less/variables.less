@@ -3,27 +3,51 @@
 
 @header-background-color:         #f3f5f4;
 
-@input-color-placeholder:         #aaa;
-@input-color-border:              #ccc;
+@input-placeholder-color:         #aaa;
+@input-border-color:              #ccc;
+@input-height: 30px;
 
 @font-size-normal:  14px;
 @font-size-small:   12px;
 
 @white: #fff;
-@gray:  darken(#fff, 30%);
-@lightGray:  darken(#fff, 10%);
-@darkGray:  darken(#fff, 50%);
+@lightGray:  darken(#fff, 30%);
+@gray:  darken(#fff, 50%);
+@darkGray:  darken(#fff, 70%);
 @color-error: #b31d14;
 @black: #000;
+@orange: @global-nav-bar-background-color;
 
-@btn-color-background: #fff;
-@btn-color-border: #ccc;
+@text-color-success: #008000;
 
-@btn-primary-color-background: #f47063;
-@btn-primary-color-border: #ef6256;
+//button
+
+@btn-small-height: 24px;
+@btn-medium-height: 28px;
+@btn-large-height: 32px;
+
+@btn-white-background-color: darken(@white, 5%);
+@btn-white-border-color: darken(@lightGray, 5%);
+@btn-orange-background-color: darken(@orange, 5%);
+@btn-orange-border-color: darken(@orange, 15%);
+@btn-disabled-background-color: @lightGray;
+@btn-disabled-background-color: @gray;
+
+// Type
+
+@border-bottom-color: @lightGray;
 
 // Number of columns in the grid system
-@grid-columns:              12;
+@grid-columns:              24;
 // Padding, to be divided by two and applied to the left and right of all columns
-@grid-width:                960px;
-@grid-gutter-width:        20px;
+@grid-width:                950px;
+@grid-gutter-width:        10px;
+
+//  Tipbox
+@tipbox-link-color: #0084c6;
+
+@tipbox-message-border-color: #b2e2ea;
+@tipbox-message-background-color: #e5f2f8;
+
+@tipbox-error-border-color: #FADCD3;
+@tipbox-error-background-color: #FDEEE9;

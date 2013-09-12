@@ -6,43 +6,44 @@
 
 @section('content')
 
-<div id="content" class="container">
-    <div class="row">
-        <div class="col-8 col-push-2">
-            <h1 class="title">登录</h1>
+<div id="content" class="ui-container">
+    <div class="ui-grid-row">
+        <div class="ui-grid-15 ui-grid-push-5">
+            <h1 class="ui-title">登录</h1>
 
-            <?php echo Form::open(array('class'=>'form-type-1')) ?>
+            <?php echo Form::open(array('class'=>'ui-form')) ?>
 
             @if (Session::has('redirect_notice'))
-            <div class="form-row form-tip">
-                <?php echo Session::get('redirect_notice'); ?>
+            <div class="ui-tipbox ui-tipbox-error">
+                <div class="ui-tipbox-icon"></div>
+                <div class="ui-tipbox-content">
+                    <div class="ui-tipbox-title">
+                        <?php echo Session::get('redirect_notice'); ?>
+                    </div>
+                </div>
             </div>
             @endif
 
-            <div class="form-row">
-                @if ($errors->any())
-                <ol class="form-errors">
-                    @foreach ($errors->all() as $message)
-                    <li>{{$message}}</li>
-                    @endforeach
-                </ol>
+            <div class="ui-form-item{{$errors->has('email') ? ' ui-form-item-error' : ''}}">
+                <label for="email" class="ui-label">E-mail</label>
+                <input class="ui-input" type="text" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>"/>
+                @if ($errors->has('email'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('email')}}</p>
                 @endif
             </div>
-
-            <div class="form-row">
-                <label for="email">E-mail</label>
-                <input class="form-text" type="text" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>"/>
+            <div class="ui-form-item{{$errors->has('password') ? ' ui-form-item-error' : ''}}">
+                <label for="password" class="ui-label">密码</label>
+                <input class="ui-input" type="password" name="password" id="password" placeholder="密码"/>
+                @if ($errors->has('password'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('password')}}</p>
+                @endif
             </div>
-            <div class="form-row">
-                <label for="password">密码</label>
-                <input class="form-text" type="password" name="password" id="password" placeholder="密码"/>
-            </div>
-            <div class="form-row">
-                <input type="submit" class="btn btn-primary" value="登录"/>
+            <div class="ui-form-item">
+                <input type="submit" class="ui-button ui-button-morange" value="登录"/>
             </div>
             <?php echo Form::close() ?>
+
         </div>
     </div>
-</div>
 
-@stop
+    @stop

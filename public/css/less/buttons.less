@@ -1,33 +1,85 @@
-@import "mixins";
-@import "variables";
+@import "variables.less";
+@import "mixins.less";
 
-.btn{
-  color: @black;
-  font-size: 14px;
-  font-weight: normal;
-  .border-radius(3px);
-  background-color: @btn-color-background;
-  border: 1px solid @btn-color-border;
-  height: 30px;
-  line-height: 30px;
+.ui-button{
+  font-weight: 800;
+  .border-radius(2px);
   .padding(0 15px);
-  &:hover, &:focus{
-    background-color: darken(@btn-color-background, 5%);
-    border: 1px solid darken(@btn-color-border, 5%);
+  &.ui-button-swhite{
+    color: @darkGray;
+    font-size: @font-size-small;
+    height: @btn-small-height;
+    line-height: @btn-small-height;
+    background-color: @btn-white-background-color;
+    border: 1px solid @btn-white-border-color;
+    &:hover, &:focus{
+      background-color: lighten(@btn-white-background-color, 10%);
+      border: 1px solid darken(@btn-white-border-color, 10%);
+    }
+  }
+  &.ui-button-mwhite{
+    color: @darkGray;
+    font-size: @font-size-normal;
+    height: @btn-medium-height;
+    line-height: @btn-medium-height;
+    background-color: @btn-white-background-color;
+    border: 1px solid @btn-white-border-color;
+    &:hover, &:focus{
+      background-color: lighten(@btn-white-background-color, 10%);
+      border: 1px solid darken(@btn-white-border-color, 10%);
+    }
+  }
+  &.ui-button-lwhite{
+    color: @darkGray;
+    font-size: @font-size-normal;
+    height: @btn-large-height;
+    line-height: @btn-large-height;
+    background-color: @btn-white-background-color;
+    border: 1px solid @btn-white-border-color;
+    &:hover, &:focus{
+      background-color: lighten(@btn-white-background-color, 10%);
+      border: 1px solid darken(@btn-white-border-color, 10%);
+    }
+  }
+  &.ui-button-sorange{
+    color: @white;
+    font-size: @font-size-small;
+    height: @btn-small-height;
+    line-height: @btn-small-height;
+    background-color: @btn-orange-background-color;
+    border: 1px solid @btn-orange-border-color;
+    &:hover, &:focus{
+      background-color: darken(@btn-orange-background-color, 10%);
+      border: 1px solid darken(@btn-orange-border-color, 10%);
+    }
+  }
+  &.ui-button-morange{
+    color: @white;
+    font-size: @font-size-normal;
+    height: @btn-medium-height;
+    line-height: @btn-medium-height;
+    background-color: @btn-orange-background-color;
+    border: 1px solid @btn-orange-border-color;
+    &:hover, &:focus{
+      background-color: darken(@btn-orange-background-color, 10%);
+      border: 1px solid darken(@btn-orange-border-color, 10%);
+    }
+  }
+  &.ui-button-lorange{
+    color: @white;
+    font-size: @font-size-normal;
+    height: @btn-large-height;
+    line-height: @btn-large-height;
+    background-color: @btn-orange-background-color;
+    border: 1px solid @btn-orange-border-color;
+    &:hover, &:focus{
+      background-color: darken(@btn-orange-background-color, 10%);
+      border: 1px solid darken(@btn-orange-border-color, 10%);
+    }
   }
 }
 
-.btn-primary{
-  color: @white;
-  background-color: @btn-primary-color-background;
-  border: 1px solid @btn-primary-color-border;
-  &:hover, &:focus{
-    background-color: darken(@btn-primary-color-background, 5%);
-    border: 1px solid darken(@btn-primary-color-border, 5%);
-  }
-}
-
-a.btn{
+a.ui-button{
   text-decoration: none;
   display: inline-block;
 }

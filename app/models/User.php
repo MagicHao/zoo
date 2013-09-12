@@ -5,70 +5,96 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 /**
  * Class User
- * @property $id Integer
- * @property $email String
- * @property $username String
- * @property $password String
- * @property $avatar String
+ * @property string $id
+ * @property string $email
+ * @property string $username
+ * @property string $password
+ * @property string $gender
+ * @property string $avatar
+ * @property string $num_of_pets;
+ * @property string $last_ip;
  *
- * @property $pets Pet[]
+ * @property Pet[] $pets
  */
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Model implements UserInterface, RemindableInterface {
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    const PETS_MAX = 5;
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password');
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
-    public static $validatorRules = array(
-        'email'=>'required|email|unique:users',
-        'username'=>'required|unique:users|min:3|max:10',
-        'password'=>'required|min:6|max:16',
-    );
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = array('password');
 
-	/**
-	 * Get the unique identifier for the user.
-	 *
-	 * @return mixed
-	 */
-	public function getAuthIdentifier()
-	{
-		return $this->getKey();
-	}
+    protected $fillable = array('gender');
 
-	/**
-	 * Get the password for the user.
-	 *
-	 * @return string
-	 */
-	public function getAuthPassword()
-	{
-		return $this->password;
-	}
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
 
-	/**
-	 * Get the e-mail address where password reminders are sent.
-	 *
-	 * @return string
-	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Get the e-mail address where password reminders are sent.
+     *
+     * @return string
+     */
+    public function getReminderEmail()
+    {
+        return $this->email;
+    }
 
     public function getAvatarAttribute($value)
     {
         return empty($value) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->id, $value);
+    }
+
+    public function createPet(Pet $pet, $file)
+    {
+        if (!$pet->exists) {
+            $pet->user_id = $this->id;
+            if ($pet->save()) {
+                if ($file) $pet->updateAvatar($file);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updatePet(Pet $pet, $file = null)
+    {
+        if ($pet->exists) {
+            if ($pet->save()) {
+                if ($file) $pet->updateAvatar($file);
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function pets()
@@ -76,4 +102,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Pet');
     }
 
+    public function updateAvatar(\Symfony\Component\HttpFoundation\File\UploadedFile $file)
+    {
+        $helper = Helper::instance();
+        $uploadDir = $helper->getUploadDir($this->id);
+        $tmpUploadDir = $uploadDir . 'tmp';
+        if ($this->avatar) {
+            File::delete($helper->getUploadURL($this->id, $this->avatar));
+        } elseif (!File::isDirectory($tmpUploadDir)) {
+            File::makeDirectory($tmpUploadDir);
+        }
+        $filename = $helper->makeFilename();
+        $fullFilename = $filename . '.' . $file->getClientOriginalExtension();
+        $file = $file->move($tmpUploadDir, $fullFilename);
+        $image = new ImageContainer($file->getPathname());
+        $filePath = $uploadDir . $fullFilename;
+        $image->smart_crop(400, 400)->save($filePath, 70);
+        File::deleteDirectory($tmpUploadDir);
+        $this->avatar = $fullFilename;
+        $this->save();
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+    }
 }

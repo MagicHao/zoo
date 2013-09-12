@@ -1,14 +1,60 @@
 @extends('layouts.default')
 
+<?php
+/**
+ * @var $user User
+ */
+?>
+
 @section('title')
-{{Auth::user()->username}}
+{{$user->username}}
 @stop
 
 @section('content')
 
-<div id="content" class="container">
-    <h1 class="title">个人基本信息<span class="sub-head pull-right"><a class="btn btn-primary" href="<?php echo URL::to('pet/add') ?>">添加宠物</a></span></h1>
+<div id="content" class="ui-container">
+    <div class="ui-grid-row">
+        <div class="ui-grid-24">
+            <h1 class="ui-title">
+                个人基本信息
+                <span class="ui-sub-title pull-right">
+                @if ($user->num_of_pets < User::PETS_MAX)
+                <a class="ui-button ui-button-sorange" href="<?php echo URL::action('PetController@getAdd') ?>">添加宠物</a>
+                @else
+                您的宠物个数已经为最大允许数: {{User::PETS_MAX}}
+                @endif
+                </span>
+            </h1>
+            @if (Session::has('redirect_notice'))
+            <div class="ui-tip-text ui-tip-text-success">{{Session::get('redirect_notice')}}</div>
+            @endif
+            <?php echo Form::open(array('class'=>'ui-form', 'files'=>true)) ?>
 
+            <div class="ui-form-item{{$errors->has('gender') ? ' ui-form-item-error' : ''}}">
+                <label class="ui-label" for="gender">性别</label>
+                {{Form::select('gender', array('m'=>'男', 'f'=>'女', 's'=>'不清楚'), $user->gender)}}
+                @if ($errors->has('gender'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('gender')}}</p>
+                @endif
+            </div>
+
+            <div class="ui-form-item{{$errors->has('avatar') ? ' ui-form-item-error' : ''}}">
+                <label class="ui-label" for="avatar">头像</label>
+                <input class="ui-input" type="file" name="avatar" id="avatar" value="<?php echo Input::old('avatar') ?>"/>
+                <span class="ui-form-other">
+                    <img src="{{$user->avatar}}" alt="{{$user->username}}" width="32"/>
+                </span>
+                @if ($errors->has('avatar'))
+                <p class="ui-tip-text ui-tip-text-error">{{$errors->first('avatar')}}</p>
+                @endif
+            </div>
+
+            <div class="ui-form-item">
+                <input type="submit" class="ui-button ui-button-morange" value="保存"/>
+            </div>
+            <?php echo Form::close() ?>
+        </div>
+    </div>
 </div>
 
 @stop

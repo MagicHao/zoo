@@ -23,4 +23,12 @@ class Helper {
     {
         return URL::asset('images/uploads/' . $id % self::HASH_DIR_LEVEL . '/' . $id . '/' . $filename);
     }
+
+    public function makeFilename() {
+        $formatString='YmdHisu';
+        $t = microtime(true);
+        $micro = sprintf("%06d", ($t - floor($t)) * 1000000);
+        $formatString = str_replace('u', $micro, $formatString);
+        return date($formatString, $t);
+    }
 }

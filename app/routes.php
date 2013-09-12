@@ -13,18 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+    return View::make('index');
 });
 
-Route::get('u/{id}', function($id){
-    $user = User::find($id);
-    if ($user) {
-        return View::make('u')->with('user', $user);
-    } else {
-        App::abort(404, 'Page not found');
-    }
-})->where('id', '[0-9]+');
+Route::get('u/{id}', array('as'=>'u', function($id){
+    $user = User::findOrFail($id);
+    return View::make('u')->with('user', $user);
+}))->where('id', '[0-9]+');
 
 Route::controller('pet', 'PetController');
 
 Route::controller('accounts', 'AccountsController');
+
+Route::controller('post', 'PostController');

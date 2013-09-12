@@ -1,0 +1,17 @@
+@import "variables";
+@import "mixins";
+
+.ui-tip-text{
+  clear: both;
+  color: @lightGray;
+  padding: 5px 0;
+  line-height: @input-height - 10;
+  font-size: @font-size-small;
+  margin: 0;
+  &.ui-tip-text-success{
+    color: @text-color-success;
+  }
+  &.ui-tip-text-error{
+    color: @color-error;
+  }
+}

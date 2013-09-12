@@ -13,7 +13,7 @@
 
 */
 
-class Image {
+class ImageContainer {
 
     private $image, $filename, $original_info, $width, $height;
 

@@ -1,5 +1,6 @@
-@import "mixins";
-@import "variables";
+@import "variables.less";
+@import "mixins.less";
+
 //
 // Grid system
 // --------------------------------------------------
@@ -8,96 +9,163 @@
 .container-fixed() {
   margin-right: auto;
   margin-left: auto;
-  .clearfix();
 }
 
 // Creates a wrapper for a series of columns
-.make-row() {
-  .clearfix();
+.make-row(@gutter: @grid-gutter-width) {
+  margin-right: -@gutter;
+  margin-bottom: @gutter;
+  clear:both;
+  .clearfix;
 }
 
 // Set the container width, and override it for fixed navbars in media queries
-.container {
+.ui-container {
   width: @grid-width;
   .container-fixed();
 }
 
 // mobile first defaults
-.row {
+.ui-grid-row {
   .make-row();
 }
 
 // Common styles for small and large grid columns
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12 {
+.ui-grid-1,
+.ui-grid-2,
+.ui-grid-3,
+.ui-grid-4,
+.ui-grid-5,
+.ui-grid-6,
+.ui-grid-7,
+.ui-grid-8,
+.ui-grid-9,
+.ui-grid-10,
+.ui-grid-11,
+.ui-grid-12,
+.ui-grid-13,
+.ui-grid-14,
+.ui-grid-15,
+.ui-grid-16,
+.ui-grid-17,
+.ui-grid-18,
+.ui-grid-19,
+.ui-grid-20,
+.ui-grid-21,
+.ui-grid-22,
+.ui-grid-23,
+.ui-grid-24,
+.ui-grid-25{
   float: left;
+  display: inline;
   position: relative;
   // Prevent columns from collapsing when empty
   min-height: 1px;
   // Inner gutter via padding
-//  padding-left:  (@grid-gutter-width / 2);
-//  padding-right: (@grid-gutter-width / 2);
+  .margin(0 10px 0 0);
 }
-.col-1  { width: percentage((1 / @grid-columns)); }
-.col-2  { width: percentage((2 / @grid-columns)); }
-.col-3  { width: percentage((3 / @grid-columns)); }
-.col-4  { width: percentage((4 / @grid-columns)); }
-.col-5  { width: percentage((5 / @grid-columns)); }
-.col-6  { width: percentage((6 / @grid-columns)); }
-.col-7  { width: percentage((7 / @grid-columns)); }
-.col-8  { width: percentage((8 / @grid-columns)); }
-.col-9  { width: percentage((9 / @grid-columns)); }
-.col-10 { width: percentage((10/ @grid-columns)); }
-.col-11 { width: percentage((11/ @grid-columns)); }
-.col-12 { width: 100%; }
+.ui-grid-1  { width: (@grid-width + 10px) / @grid-columns * 1 - 10px; }
+.ui-grid-2  { width: (@grid-width + 10px) / @grid-columns * 2 - 10px; }
+.ui-grid-3  { width: (@grid-width + 10px) / @grid-columns * 3 - 10px; }
+.ui-grid-4  { width: (@grid-width + 10px) / @grid-columns * 4 - 10px; }
+.ui-grid-5  { width: (@grid-width + 10px) / @grid-columns * 5 - 10px; }
+.ui-grid-6  { width: (@grid-width + 10px) / @grid-columns * 6 - 10px; }
+.ui-grid-7  { width: (@grid-width + 10px) / @grid-columns * 7 - 10px; }
+.ui-grid-8  { width: (@grid-width + 10px) / @grid-columns * 8 - 10px; }
+.ui-grid-9  { width: (@grid-width + 10px) / @grid-columns * 9 - 10px; }
+.ui-grid-10 { width: (@grid-width + 10px) / @grid-columns * 10 - 10px; }
+.ui-grid-11 { width: (@grid-width + 10px) / @grid-columns * 11 - 10px; }
+.ui-grid-12 { width: (@grid-width + 10px) / @grid-columns * 12 - 10px; }
+.ui-grid-13 { width: (@grid-width + 10px) / @grid-columns * 13 - 10px; }
+.ui-grid-14 { width: (@grid-width + 10px) / @grid-columns * 14 - 10px; }
+.ui-grid-15 { width: (@grid-width + 10px) / @grid-columns * 15 - 10px; }
+.ui-grid-16 { width: (@grid-width + 10px) / @grid-columns * 16 - 10px; }
+.ui-grid-17 { width: (@grid-width + 10px) / @grid-columns * 17 - 10px; }
+.ui-grid-18 { width: (@grid-width + 10px) / @grid-columns * 18 - 10px; }
+.ui-grid-19 { width: (@grid-width + 10px) / @grid-columns * 19 - 10px; }
+.ui-grid-20 { width: (@grid-width + 10px) / @grid-columns * 20 - 10px; }
+.ui-grid-21 { width: (@grid-width + 10px) / @grid-columns * 21 - 10px; }
+.ui-grid-22 { width: (@grid-width + 10px) / @grid-columns * 22 - 10px; }
+.ui-grid-23 { width: (@grid-width + 10px) / @grid-columns * 23 - 10px; }
+.ui-grid-24 { width: (@grid-width + 10px) / @grid-columns * 24 - 10px; }
+.ui-grid-25 { width: (@grid-width + 10px) / @grid-columns * 25 - 10px; }
 
 // Push and pull columns for source order changes
-.col-push-0  { left: auto; }
-.col-push-1  { left: percentage((1 / @grid-columns)); }
-.col-push-2  { left: percentage((2 / @grid-columns)); }
-.col-push-3  { left: percentage((3 / @grid-columns)); }
-.col-push-4  { left: percentage((4 / @grid-columns)); }
-.col-push-5  { left: percentage((5 / @grid-columns)); }
-.col-push-6  { left: percentage((6 / @grid-columns)); }
-.col-push-7  { left: percentage((7 / @grid-columns)); }
-.col-push-8  { left: percentage((8 / @grid-columns)); }
-.col-push-9  { left: percentage((9 / @grid-columns)); }
-.col-push-10 { left: percentage((10/ @grid-columns)); }
-.col-push-11 { left: percentage((11/ @grid-columns)); }
+.ui-grid-push-0  { left: auto; }
+.ui-grid-push-1  { left: (@grid-width + 10px) / @grid-columns * 1 - 10px; }
+.ui-grid-push-2  { left: (@grid-width + 10px) / @grid-columns * 2 - 10px; }
+.ui-grid-push-3  { left: (@grid-width + 10px) / @grid-columns * 3 - 10px; }
+.ui-grid-push-4  { left: (@grid-width + 10px) / @grid-columns * 4 - 10px; }
+.ui-grid-push-5  { left: (@grid-width + 10px) / @grid-columns * 5 - 10px; }
+.ui-grid-push-6  { left: (@grid-width + 10px) / @grid-columns * 6 - 10px; }
+.ui-grid-push-7  { left: (@grid-width + 10px) / @grid-columns * 7 - 10px; }
+.ui-grid-push-8  { left: (@grid-width + 10px) / @grid-columns * 8 - 10px; }
+.ui-grid-push-9  { left: (@grid-width + 10px) / @grid-columns * 9 - 10px; }
+.ui-grid-push-10 { left: (@grid-width + 10px) / @grid-columns * 10 - 10px; }
+.ui-grid-push-11 { left: (@grid-width + 10px) / @grid-columns * 11 - 10px; }
+.ui-grid-push-12 { left: (@grid-width + 10px) / @grid-columns * 12 - 10px; }
+.ui-grid-push-13 { left: (@grid-width + 10px) / @grid-columns * 13 - 10px; }
+.ui-grid-push-14 { left: (@grid-width + 10px) / @grid-columns * 14 - 10px; }
+.ui-grid-push-15 { left: (@grid-width + 10px) / @grid-columns * 15 - 10px; }
+.ui-grid-push-16 { left: (@grid-width + 10px) / @grid-columns * 16 - 10px; }
+.ui-grid-push-17 { left: (@grid-width + 10px) / @grid-columns * 17 - 10px; }
+.ui-grid-push-18 { left: (@grid-width + 10px) / @grid-columns * 18 - 10px; }
+.ui-grid-push-19 { left: (@grid-width + 10px) / @grid-columns * 19 - 10px; }
+.ui-grid-push-20 { left: (@grid-width + 10px) / @grid-columns * 20 - 10px; }
+.ui-grid-push-21 { left: (@grid-width + 10px) / @grid-columns * 21 - 10px; }
+.ui-grid-push-22 { left: (@grid-width + 10px) / @grid-columns * 22 - 10px; }
+.ui-grid-push-23 { left: (@grid-width + 10px) / @grid-columns * 23 - 10px; }
+.ui-grid-push-24 { left: (@grid-width + 10px) / @grid-columns * 24 - 10px; }
 
-.col-pull-0  { right: auto; }
-.col-pull-1  { right: percentage((1 / @grid-columns)); }
-.col-pull-2  { right: percentage((2 / @grid-columns)); }
-.col-pull-3  { right: percentage((3 / @grid-columns)); }
-.col-pull-4  { right: percentage((4 / @grid-columns)); }
-.col-pull-5  { right: percentage((5 / @grid-columns)); }
-.col-pull-6  { right: percentage((6 / @grid-columns)); }
-.col-pull-7  { right: percentage((7 / @grid-columns)); }
-.col-pull-8  { right: percentage((8 / @grid-columns)); }
-.col-pull-9  { right: percentage((9 / @grid-columns)); }
-.col-pull-10 { right: percentage((10/ @grid-columns)); }
-.col-pull-11 { right: percentage((11/ @grid-columns)); }
+.ui-grid-pull-0  { right: auto; }
+.ui-grid-pull-1  { right: (@grid-width + 10px) / @grid-columns * 1 - 10px; }
+.ui-grid-pull-2  { right: (@grid-width + 10px) / @grid-columns * 2 - 10px; }
+.ui-grid-pull-3  { right: (@grid-width + 10px) / @grid-columns * 3 - 10px; }
+.ui-grid-pull-4  { right: (@grid-width + 10px) / @grid-columns * 4 - 10px; }
+.ui-grid-pull-5  { right: (@grid-width + 10px) / @grid-columns * 5 - 10px; }
+.ui-grid-pull-6  { right: (@grid-width + 10px) / @grid-columns * 6 - 10px; }
+.ui-grid-pull-7  { right: (@grid-width + 10px) / @grid-columns * 7 - 10px; }
+.ui-grid-pull-8  { right: (@grid-width + 10px) / @grid-columns * 8 - 10px; }
+.ui-grid-pull-9  { right: (@grid-width + 10px) / @grid-columns * 9 - 10px; }
+.ui-grid-pull-10 { right: (@grid-width + 10px) / @grid-columns * 10 - 10px; }
+.ui-grid-pull-11 { right: (@grid-width + 10px) / @grid-columns * 11 - 10px; }
+.ui-grid-pull-12 { right: (@grid-width + 10px) / @grid-columns * 12 - 10px; }
+.ui-grid-pull-13 { right: (@grid-width + 10px) / @grid-columns * 13 - 10px; }
+.ui-grid-pull-14 { right: (@grid-width + 10px) / @grid-columns * 14 - 10px; }
+.ui-grid-pull-15 { right: (@grid-width + 10px) / @grid-columns * 15 - 10px; }
+.ui-grid-pull-16 { right: (@grid-width + 10px) / @grid-columns * 16 - 10px; }
+.ui-grid-pull-17 { right: (@grid-width + 10px) / @grid-columns * 17 - 10px; }
+.ui-grid-pull-18 { right: (@grid-width + 10px) / @grid-columns * 18 - 10px; }
+.ui-grid-pull-19 { right: (@grid-width + 10px) / @grid-columns * 19 - 10px; }
+.ui-grid-pull-20 { right: (@grid-width + 10px) / @grid-columns * 20 - 10px; }
+.ui-grid-pull-21 { right: (@grid-width + 10px) / @grid-columns * 21 - 10px; }
+.ui-grid-pull-22 { right: (@grid-width + 10px) / @grid-columns * 22 - 10px; }
+.ui-grid-pull-23 { right: (@grid-width + 10px) / @grid-columns * 23 - 10px; }
+.ui-grid-pull-24 { right: (@grid-width + 10px) / @grid-columns * 24 - 10px; }
 
 // Offsets
-.col-offset-0  { margin-left: 0; }
-.col-offset-1  { margin-left: percentage((1 / @grid-columns)); }
-.col-offset-2  { margin-left: percentage((2 / @grid-columns)); }
-.col-offset-3  { margin-left: percentage((3 / @grid-columns)); }
-.col-offset-4  { margin-left: percentage((4 / @grid-columns)); }
-.col-offset-5  { margin-left: percentage((5 / @grid-columns)); }
-.col-offset-6  { margin-left: percentage((6 / @grid-columns)); }
-.col-offset-7  { margin-left: percentage((7 / @grid-columns)); }
-.col-offset-8  { margin-left: percentage((8 / @grid-columns)); }
-.col-offset-9  { margin-left: percentage((9 / @grid-columns)); }
-.col-offset-10 { margin-left: percentage((10/ @grid-columns)); }
-.col-offset-11 { margin-left: percentage((11/ @grid-columns)); }
+.ui-grid-offset-0  { margin-left: 0; }
+.ui-grid-offset-1  { margin-left: (@grid-width + 10px) / @grid-columns * 1 - 10px; }
+.ui-grid-offset-2  { margin-left: (@grid-width + 10px) / @grid-columns * 2 - 10px; }
+.ui-grid-offset-3  { margin-left: (@grid-width + 10px) / @grid-columns * 3 - 10px; }
+.ui-grid-offset-4  { margin-left: (@grid-width + 10px) / @grid-columns * 4 - 10px; }
+.ui-grid-offset-5  { margin-left: (@grid-width + 10px) / @grid-columns * 5 - 10px; }
+.ui-grid-offset-6  { margin-left: (@grid-width + 10px) / @grid-columns * 6 - 10px; }
+.ui-grid-offset-7  { margin-left: (@grid-width + 10px) / @grid-columns * 7 - 10px; }
+.ui-grid-offset-8  { margin-left: (@grid-width + 10px) / @grid-columns * 8 - 10px; }
+.ui-grid-offset-9  { margin-left: (@grid-width + 10px) / @grid-columns * 9 - 10px; }
+.ui-grid-offset-10 { margin-left: (@grid-width + 10px) / @grid-columns * 10 - 10px; }
+.ui-grid-offset-11 { margin-left: (@grid-width + 10px) / @grid-columns * 11 - 10px; }
+.ui-grid-offset-12 { right: (@grid-width + 10px) / @grid-columns * 12 - 10px; }
+.ui-grid-offset-13 { right: (@grid-width + 10px) / @grid-columns * 13 - 10px; }
+.ui-grid-offset-14 { right: (@grid-width + 10px) / @grid-columns * 14 - 10px; }
+.ui-grid-offset-15 { right: (@grid-width + 10px) / @grid-columns * 15 - 10px; }
+.ui-grid-offset-16 { right: (@grid-width + 10px) / @grid-columns * 16 - 10px; }
+.ui-grid-offset-17 { right: (@grid-width + 10px) / @grid-columns * 17 - 10px; }
+.ui-grid-offset-18 { right: (@grid-width + 10px) / @grid-columns * 18 - 10px; }
+.ui-grid-offset-19 { right: (@grid-width + 10px) / @grid-columns * 19 - 10px; }
+.ui-grid-offset-20 { right: (@grid-width + 10px) / @grid-columns * 20 - 10px; }
+.ui-grid-offset-21 { right: (@grid-width + 10px) / @grid-columns * 21 - 10px; }
+.ui-grid-offset-22 { right: (@grid-width + 10px) / @grid-columns * 22 - 10px; }
+.ui-grid-offset-23 { right: (@grid-width + 10px) / @grid-columns * 23 - 10px; }
+.ui-grid-offset-24 { right: (@grid-width + 10px) / @grid-columns * 24 - 10px; }

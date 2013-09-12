@@ -10,4 +10,11 @@
 
 </div>
 
+<div class="ui-container">
+    <div class="ui-grid-row">
+        <div class="ui-grid-5">1</div>
+        <div class="ui-grid-20">2</div>
+    </div>
+</div>
+
 @stop

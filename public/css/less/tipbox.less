@@ -1,0 +1,46 @@
+@import "variables";
+@import "mixins";
+
+.ui-tipbox{
+  position: relative;
+  margin-bottom: 10px;
+  line-height: 22px;
+  .min-height(60px);
+  .ui-tipbox-icon{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+  }
+  .ui-tipbox-content{
+    margin: 10px 10px 10px 100px;
+    color: @gray;
+    font-size: @font-size-small;
+    .ui-tipbox-title{
+      color: @darkGray;
+      font-size: @font-size-normal;
+      font-weight: 800;
+    }
+    .ui-tipbox-explain{
+      margin: 0;
+      padding: 0;
+      a{
+        text-decoration: none;
+        color: @tipbox-link-color;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &.ui-tipbox-message{
+    background-color: @tipbox-message-background-color;
+    border: 1px solid @tipbox-message-border-color;
+  }
+  &.ui-tipbox-error{
+    background-color: @tipbox-error-background-color;
+    border: 1px solid @tipbox-error-border-color;
+  }
+}

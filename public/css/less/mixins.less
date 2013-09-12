@@ -1,18 +1,8 @@
-@import "variables";
+@import "variables.less";
 
-.clearfix(){
-  *zoom: 1;
-  &:before,
-  &:after {
-    display: table;
-    content: "";
-    // Fixes Opera/contenteditable bug:
-    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-    line-height: 0;
-  }
-  &:after {
-    clear: both;
-  }
+.min-height(@pixel){
+  min-height: @pixel;
+  _height: @pixel;
 }
 
 .margin(@pixel){
@@ -23,13 +13,18 @@
   padding: @pixel;
 }
 
+.margin-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.placeholder(@color: @input-color-placeholder) {
+.placeholder(@color: @input-placeholder-color) {
   &:-moz-placeholder            { color: @color; } // Firefox 4-18
   &::-moz-placeholder           { color: @color; } // Firefox 19+
   &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+

@@ -1,37 +1,80 @@
-@import "variables";
-@import "mixins";
+@import "variables.less";
+@import "mixins.less";
+@import "untitled";
 
-.form-text{
-  .border-radius(2px);
-  border: 1px solid @input-color-border;
-  .box-shadow(0 0 3px rgba(0, 0, 0, 0.1) inset);
-  .padding(0 5px);
-  height: 30px;
-}
+.ui-form{
+  .ui-form-item{
+    .padding(0 0 20px 110px);
+    .clearfix;
+    &.ui-form-item-focus{
 
-.form-type-1{
-  .form-tip{
-    color: @darkGray;
-  }
-  .form-row{
-    .padding(10px 0);
-    label{
-      width: 120px;
-      height: 30px;
-      line-height: 30px;
-      display: inline-block;
     }
-    .form-text{
-      width: 300px;
+    &.ui-form-item-error{
+      .ui-input{
+        color: @color-error;
+        border: 1px solid @color-error;
+      }
     }
-  }
-  .form-errors{
-    overflow: hidden;
-    .padding(0 10px);
-    border-left: 3px solid @color-error;
-    color: @color-error;
-    li{
-      list-style-position: inside;
+    .ui-label{
+      float: left;
+      color: @gray;
+      .text-right;
+      line-height: @input-height;
+      width: 110px;
+      height: @input-height;
+      margin-left: -120px;
+    }
+    .ui-form-text{
+      .pull-left;
+      width: 210px;
+      font-size: @font-size-small;
+      color: @gray;
+      height: @input-height;
+      line-height: @input-height;
+      margin: 0;
+    }
+    .ui-form-required{
+      color: @color-error;
+    }
+    .ui-input{
+      .pull-left;
+      width: 210px;
+      height: @input-height - 5 * 2;
+      line-height: @input-height - 5 * 2;
+      padding: 5px;
+      border: 1px solid @lightGray;
+      width: 200px;
+      .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
+      .border-radius(2px);
+      &.ui-input-disabled{
+      }
+    }
+    .ui-textarea{
+      .pull-left;
+      width: 210px;
+      height: @input-height * 3;
+      line-height: @input-height - 10;
+      padding: 5px;
+      border: 1px solid @lightGray;
+      width: @input-height * 15;
+      .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
+      .border-radius(2px);
+    }
+    select{
+      height: @input-height;
+      border: 1px solid @lightGray;
+      .border-radius(2px);
+      .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
+    }
+    .ui-form-other{
+      color: @darkGray;
+      font-size: @font-size-small;
+      margin-left: 5px;
+      height: @input-height;
+      line-height: @input-height;
+      a{
+        color: @orange;
+      }
     }
   }
 }

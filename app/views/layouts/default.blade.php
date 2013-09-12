@@ -3,7 +3,6 @@
 <head>
     <title>动物园 - @yield('title', '我们的家')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo URL::asset('css/normalize.css') ?>"/>
     <link rel="stylesheet" href="<?php echo URL::asset('css/style.css') ?>"/>
     <script type="text/javascript" src="<?php echo URL::asset('js/jquery.js') ?>"></script>
 </head>
@@ -14,6 +13,7 @@
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('/') ?>">首页</a></li>
     </ul>
     <ul class="global-nav-bar-user-menu">
+        <li class="global-nav-bar-item"><a href="<?php echo URL::to('post/add') ?>">发布碎碎念</a></li>
         @if (!Auth::check())
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/register') ?>">注册</a></li>
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/login') ?>">登录</a></li>
