@@ -1,7 +1,8 @@
 @global-nav-bar-height:           40px;
-@global-nav-bar-background-color: #F47063;
+@global-nav-bar-background-color: #f47063;
 
-@header-background-color:         #f3f5f4;
+@body-background-color:           #ededeb;
+@header-background-color:         darken(#ededeb, 5%);
 
 @input-placeholder-color:         #aaa;
 @input-border-color:              #ccc;
@@ -18,7 +19,18 @@
 @black: #000;
 @orange: @global-nav-bar-background-color;
 
-@text-color-success: #008000;
+@color-default: #999;
+@color-primary: #428bca;
+@color-success: #468847;
+@color-info: #3a87ad;
+@color-warning: #c09853;
+@color-danger: #b94a48;
+
+//pagination
+@pagination-item-background-color: #f3f3f3;
+@pagination-item-text-color: gray;
+@pagination-item-active-background-color: @global-nav-bar-background-color;
+@pagination-item-active-text-color: @white;
 
 //button
 
@@ -35,7 +47,7 @@
 
 // Type
 
-@border-bottom-color: @lightGray;
+@border-bottom-color: #ddd;
 
 // Number of columns in the grid system
 @grid-columns:              24;
@@ -46,8 +58,11 @@
 //  Tipbox
 @tipbox-link-color: #0084c6;
 
-@tipbox-message-border-color: #b2e2ea;
-@tipbox-message-background-color: #e5f2f8;
+@success-border-color: #b9e2a0;
+@success-background-color: #e7ffce;
 
-@tipbox-error-border-color: #FADCD3;
-@tipbox-error-background-color: #FDEEE9;
+@message-border-color: #b2e2ea;
+@message-background-color: #e5f2f8;
+
+@error-border-color: #FADCD3;
+@error-background-color: #FDEEE9;

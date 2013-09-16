@@ -9,13 +9,13 @@ class Validation extends ValidationService {
         'name'=>'required|min:2|max:6',
         'gender'=>'required|in:m,f,s',
         'birthdate'=>'required|date',
-        'avatar'=>'required|image',
+        'avatar'=>'required|image|file_count:1',
     );
 
     protected $updatingRules = array(
         'name'=>'min:2|max:6',
         'gender'=>'in:m,f,s',
         'birthdate'=>'date',
-        'avatar'=>'image',
+        'avatar'=>'image|file_count:1',
     );
 }

@@ -1,0 +1,22 @@
+.ui-pagination{
+  font-size: @font-size-small;
+  margin-bottom: 10px;
+  .clearfix;
+  .ui-pagination-item{
+    display: inline-block;
+    color: @pagination-item-text-color;
+    font-weight: 800;
+    padding: 5px 10px;
+    color: @pagination-item-text-color;
+    background-color: @pagination-item-background-color;
+    margin-right: 5px;
+    .border-radius(3px);
+    &:hover{
+      background-color: darken(@pagination-item-background-color, 15%);
+    }
+    &.ui-pagination-active{
+      color: @pagination-item-active-text-color;
+      background-color: @pagination-item-active-background-color;
+    }
+  }
+}

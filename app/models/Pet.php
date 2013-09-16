@@ -8,10 +8,13 @@
  * @property string $gender
  * @property string $birthdate
  * @property string $avatar
+ * @property string $avatarPath
  * @property Carbon\Carbon $created_at
+ * @property string $num_of_posts
  *
  * @property User $user
  * @property Post[] $posts
+ * @property PostImage[] $postImages
  */
 
 class Pet extends Model  {
@@ -32,9 +35,9 @@ class Pet extends Model  {
 
     protected $fillable = array('gender', 'name', 'birthdate');
 
-    public function getAvatarAttribute($value)
+    public function getAvatarPathAttribute($value)
     {
-        return empty($value) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->user_id, $value);
+        return empty($this->avatar) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->user_id, $this->avatar);
     }
 
     public function getGenderAttribute($value)
@@ -55,6 +58,11 @@ class Pet extends Model  {
     public function posts()
     {
         return $this->hasMany('Post');
+    }
+
+    public function postImages()
+    {
+        return $this->hasMany('PostImage');
     }
 
     public function updateAvatar(\Symfony\Component\HttpFoundation\File\UploadedFile $file)

@@ -10,3 +10,9 @@ Event::listen('auth.login', function($user){
 User::observe(new Services\Users\Observer());
 Pet::observe(new Services\Pets\Observer());
 Post::observe(new Services\Posts\Observer());
+PostImage::observe(new Services\PostImages\Observer());
+
+Validator::resolver(function($translator, $data, $rules, $messages)
+{
+    return new CustomValidator($translator, $data, $rules, $messages);
+});

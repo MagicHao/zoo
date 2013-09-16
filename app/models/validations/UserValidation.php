@@ -11,12 +11,12 @@ class Validation extends ValidationService {
         'username'=>'required|unique:users|min:3|max:10',
         'password'=>'required|min:6|max:16',
         'gender'=>'in:m,f,s',
-        'avatar'=>'image'
+        'avatar'=>'image|file_count:1'
     );
 
     public $updatingRules = array(
         'gender'=>'in:m,f,s',
-        'avatar'=>'image'
+        'avatar'=>'image|file_count:1'
     );
 
 }

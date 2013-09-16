@@ -2,13 +2,12 @@
 
 <?php
 /**
- * @var $user User
- * @var $posts Post[]
+ * @var $pet Pet
  */
 ?>
 
 @section('title')
-{{$user->username}}
+{{$pet->name}}
 @stop
 
 @section('content')
@@ -17,20 +16,12 @@
     <div class="ui-grid-row">
         <div class="ui-grid-16">
             <div class="block">
-                <h1 class="ui-title">{{$user->username}} 的资料</h1>
-                <div class="u-user-profile">
-                    <div class="u-user-profile-avatar">
-                        {{HTML::image($user->avatarPath, $user->username, array('width'=>150))}}
-                    </div>
-                </div>
-            </div>
-            <div class="block">
-                <h2 class="ui-title">碎碎念</h2>
+                <h2 class="ui-title">{{$pet->name}} 的碎碎念</h2>
                 @foreach ($posts as $post)
                 <div class="u-post-item">
                     <div class="u-post-item-info">
-                        <span class="u-post-item-avatar"><img src="{{$post->pet->avatarPath}}" alt="{{$post->pet->name}}" width="30" /></span>
-                        <div class="u-post-item-other"><span class="u-post-item-pet-name">{{HTML::link(URL::route('pet', array($post->pet->id)), HTML::entities($post->pet->name))}}</span> 在 <span class="u-post-item-time">{{$post->created_at->format('Y-m-d H:i')}}</span> 说:</div>
+                        <span class="u-post-item-avatar"><img src="{{$pet->avatarPath}}" alt="{{$pet->name}}" width="30" /></span>
+                        <div class="u-post-item-other"><span class="u-post-item-pet-name">{{HTML::link(URL::route('pet', array($pet->id)), HTML::entities($pet->name))}}</span> 在 <span class="u-post-item-time">{{$post->created_at->format('Y-m-d H:i')}}</span> 说:</div>
                     </div>
                     <div class="u-post-item-content">
                         <p>{{HTML::entities($post->content)}}</p>
@@ -46,11 +37,8 @@
 
         <div class="ui-grid-8">
             <div class="block">
-
-                <h2 class="ui-title">{{$user->username}} 家的孩子</h2>
+                <h2 class="ui-title">{{$pet->name}} 的资料</h2>
                 <div class="u-pet-profile-box">
-                    @if (!$user->pets->isEmpty())
-                    @foreach ($user->pets as $pet)
                     <div class="u-pet-profile">
                         <div class="u-pet-profile-avatar">
                             <a href="{{URL::route('pet', array($pet->id))}}"><img width="50" src="{{$pet->avatarPath}}" alt="{{$pet->name}}"/></a>
@@ -58,7 +46,7 @@
                         <div class="u-pet-profile-content">
                             <div class="u-pet-profile-item pet-profile-name">
                                 <a href="{{URL::route('pet', array($pet->id))}}">{{HTML::entities($pet->name)}}</a>
-                                @if (Auth::check() && Auth::user()->id == $user->id)
+                                @if (Auth::check() && Auth::user()->id == $pet->user->id)
                             <span class="pull-right">
                                 {{HTML::link(URL::action('PetController@getEdit', array($pet->id)), '编辑')}}
                             </span>
@@ -69,19 +57,9 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    @else
-                    <div class="ui-tiptext-container ui-tiptext-container-message">
-                        <p class="ui-tiptext ui-tiptext-message">
-                            <i class="ui-tiptext-icon"></i>您暂时还没有为宠物添加档案。
-                            现在去 <a href="{{URL::action('PetController@getAdd')}}">添加档案</a>。
-                        </p>
-                    </div>
-                    @endif
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

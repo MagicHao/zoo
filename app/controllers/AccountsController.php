@@ -28,7 +28,8 @@ class AccountsController extends BaseController {
         $user->password = Hash::make(Input::get('password'));
         $user->username = Input::get('username');
         if ($user->save()) {
-            return Redirect::to('accounts/login')->with('redirect_notice', '注册成功，请登录。');
+            Auth::login($user);
+            return Redirect::route('u', array($user->id));
         } else {
             return Redirect::to('accounts/register')->withErrors($user->errors);
         }
@@ -74,9 +75,16 @@ class AccountsController extends BaseController {
             return Redirect::action('AccountsController@getProfile')->withErrors($validator)->withInput();
         }
         $user->fill(Input::all());
-        $user->save();
-        if (Input::hasFile('avatar')) $user->updateAvatar(Input::file('avatar'));
-        return Redirect::action('AccountsController@getProfile')->with('redirect_notice', '保存成功。');
+        if ($user->save()) {
+            if (Input::hasFile('avatar')) {
+                $processor = new \Services\ImageProcessors\AvatarImageProcessor($user->id, $user);
+                $processor->process(Input::file('avatar'));
+            }
+            return Redirect::action('AccountsController@getProfile')->with('redirect_notice', '资料已成功修改。');
+        } else {
+            return Redirect::action('AccountsController@getProfile')->withErrors($user->getErrors())->withInput();
+        }
+
     }
 
     public function getLogout()

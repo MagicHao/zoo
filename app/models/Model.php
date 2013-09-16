@@ -2,7 +2,6 @@
 
 /**
  * Class Model
- * @property Illuminate\Support\MessageBag $errors
  */
 
 class Model extends Eloquent {

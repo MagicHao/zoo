@@ -68,6 +68,7 @@ return array(
 	),
 	"unique"           => "The :attribute has already been taken.",
 	"url"              => "The :attribute format is invalid.",
+    "file_count"              => "Max count of :attribute  can be uploaded is :count.",
 
 	/*
 	|--------------------------------------------------------------------------

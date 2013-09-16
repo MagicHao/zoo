@@ -19,6 +19,7 @@ class CreatePetsTable extends Migration {
             $table->integer('num_of_fans')->default(0);
             $table->integer('num_of_visits')->default(0);
             $table->tinyInteger('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

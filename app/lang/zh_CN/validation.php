@@ -63,6 +63,7 @@ return array(
     ),
     "unique"           => ":attribute 已经被使用。",
     "url"              => ":attribute 格式不正确。",
+    "file_count"              => ":attribute 最多只能上传 :count 个。",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -99,6 +100,7 @@ return array(
         'avatar'            =>  '头像',
         'content'           =>  '内容',
         'pet_id'            =>  '宠物',
+        'image'             =>  '图像',
     ),
 
 );

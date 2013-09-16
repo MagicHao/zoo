@@ -44,15 +44,25 @@ class PetController extends BaseController {
     {
         $pet = Pet::where('user_id', '=', Auth::user()->id)->findOrFail($id);
         /* @var $pet Pet */
-        $validator = Validator::make(Input::all(), Pet::$updatingRules);
-        if ($validator->fails()) {
-            return Redirect::action('PetController@getEdit', array($id))->withErrors($validator)->withInput();
+
+        try {
+            $validator = new Services\Pets\Validation(Input::all());
+            $validator->update();
+        } catch(\Services\ValidationException $e) {
+            return Redirect::action('PetController@getEdit', array($id))->withErrors($e->getErrors())->withInput();
+        }
+
+        $pet->name = Input::get('name');
+        $pet->gender = Input::get('gender');
+        $pet->birthdate = Input::get('birthdate');
+        if ($pet->save()) {
+            if (Input::hasFile('avatar')) {
+                $processor = new Services\ImageProcessors\AvatarImageProcessor(Auth::user()->id, $pet);
+                $processor->process(Input::file('avatar'));
+            }
+            return Redirect::action('PetController@getEdit', array($id));
         } else {
-            $pet->name = Input::get('name');
-            $pet->gender = Input::get('gender');
-            $pet->birthdate = Input::get('birthdate');
-            Auth::user()->updatePet($pet, Input::file('avatar'));
-            return Redirect::route('u', array(Auth::user()->id));
+            return Redirect::action('PetController@getEdit', array($id))->withErrors($pet->getErrors())->withInput();
         }
     }
 

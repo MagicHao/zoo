@@ -11,10 +11,16 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $password
  * @property string $gender
  * @property string $avatar
+ * @property string $avatarPath
  * @property string $num_of_pets;
  * @property string $last_ip;
+ * @property string $last_time;
+ * @property string $created_time;
+ * @property string $updated_time;
  *
  * @property Pet[] $pets
+ * @property Post[] $posts
+ * @property PostImage[] $postImages
  */
 
 class User extends Model implements UserInterface, RemindableInterface {
@@ -67,9 +73,9 @@ class User extends Model implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
-    public function getAvatarAttribute($value)
+    public function getAvatarPathAttribute($value)
     {
-        return empty($value) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->id, $value);
+        return empty($this->avatar) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->id, $this->avatar);
     }
 
     public function createPet(Pet $pet, $file)
@@ -102,6 +108,16 @@ class User extends Model implements UserInterface, RemindableInterface {
         return $this->hasMany('Pet');
     }
 
+    public function posts()
+    {
+        return $this->hasMany('Post');
+    }
+
+    public function postImages()
+    {
+        return $this->hasMany('PostImage');
+    }
+
     public function updateAvatar(\Symfony\Component\HttpFoundation\File\UploadedFile $file)
     {
         $helper = Helper::instance();
@@ -121,10 +137,5 @@ class User extends Model implements UserInterface, RemindableInterface {
         File::deleteDirectory($tmpUploadDir);
         $this->avatar = $fullFilename;
         $this->save();
-    }
-
-    public static function boot()
-    {
-        parent::boot();
     }
 }

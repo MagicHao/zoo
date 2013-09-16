@@ -1,17 +1,79 @@
 @import "variables";
 @import "mixins";
 
-.ui-tip-text{
+.text-default{
+  color:@color-default;
+}
+
+.text-primary{
+  color: @color-primary;
+}
+
+.text-success{
+  color: @color-success;
+}
+
+.text-info{
+  color: @color-info;
+}
+
+.text-warning{
+  color: @color-warning;
+}
+
+.text-danger{
+  color: @color-danger;
+}
+
+.ui-tiptext-container{
+  padding: 0 5px;
+  margin-bottom: 10px;
+  &.ui-tiptext-container-error{
+    background-color: @error-background-color;
+    border: 1px solid @error-border-color;
+  }
+  &.ui-tiptext-container-message{
+    background-color: @message-background-color;
+    border: 1px solid @message-border-color;
+  }
+  &.ui-tiptext-container-success{
+    background-color: @success-background-color;
+    border: 1px solid @success-border-color;
+  }
+}
+
+.ui-tiptext{
   clear: both;
-  color: @lightGray;
+  color: @gray;
   padding: 5px 0;
   line-height: @input-height - 10;
   font-size: @font-size-small;
   margin: 0;
-  &.ui-tip-text-success{
-    color: @text-color-success;
+  p{
+    margin: 0;
   }
-  &.ui-tip-text-error{
-    color: @color-error;
+  a{
+    color: @tipbox-link-color;
+  }
+  &.ui-tiptext-success{
+    .ui-tiptext-icon{
+      color: @success-border-color;
+      font-size: @font-size-normal;
+      .icon('\e803');
+    }
+  }
+  &.ui-tiptext-error{
+    .ui-tiptext-icon{
+      color: @error-border-color;
+      font-size: @font-size-normal;
+      .icon('\e802');
+    }
+  }
+  &.ui-tiptext-message{
+    .ui-tiptext-icon{
+      color: @message-border-color;
+      font-size: @font-size-normal;
+      .icon('\e801');
+    }
   }
 }

@@ -1,20 +1,19 @@
 <?php
 
 /**
- * Class User
+ * Class Post
  * @property string $id
- * @property string $email
- * @property string $username
- * @property string $password
- * @property string $gender
- * @property string $avatar
- * @property string $num_of_pets;
- * @property string $last_ip;
+ * @property string $user_id
+ * @property string $pet_id
+ * @property string $content
+ * @property string $num_of_images
  *
- * @property Pet[] $pets
+ * @property Pet $pet
+ * @property User $user
+ * @property PostImage $postImages
  */
 
-class Post extends Eloquent {
+class Post extends Model {
 
     /**
      * The database table used by the model.
@@ -35,5 +34,15 @@ class Post extends Eloquent {
     public function pet()
     {
         return $this->belongsTo('Pet');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
+    public function postImages()
+    {
+        return $this->hasMany('PostImage');
     }
 }

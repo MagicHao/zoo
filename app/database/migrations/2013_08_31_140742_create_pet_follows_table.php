@@ -13,6 +13,7 @@ class CreatePetFollowsTable extends Migration {
             $table->integer('pet_id');
             $table->enum('type', array(0, 1));
             $table->tinyInteger('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

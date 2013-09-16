@@ -34,7 +34,14 @@ class PostController extends BaseController {
                 return Redirect::back()->withErrors($e->getErrors())->withInput();
             }
             $post = new Post(Input::all());
-            $pet->posts()->save($post);
+            $post->pet()->associate($pet);
+            $post->user()->associate($user);
+            if ($post->save()) {
+                if (Input::hasFile('image')) {
+                    $processor = new \Services\ImageProcessors\PostImageProcessor($user->id, $post);
+                    $processor->process(Input::file('image'));
+                }
+            }
             return Redirect::route('u', array($user->id));
         } else {
             $messages = New \Illuminate\Support\MessageBag();

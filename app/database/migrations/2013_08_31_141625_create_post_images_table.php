@@ -15,8 +15,10 @@ class CreatePostImagesTable extends Migration {
             /* @var $table \Illuminate\Database\Schema\Blueprint */
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('pet_id');
             $table->integer('post_id');
             $table->string('filename', 256);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

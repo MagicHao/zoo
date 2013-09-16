@@ -7,7 +7,7 @@ class Validation extends ValidationService{
 
     protected $creatingRules = array(
         'content'=>'required|min:1|max:128',
-        'image'=>'image',
+        'image'=>'image|file_count:1',
     );
 
     protected $updatingRules = array(

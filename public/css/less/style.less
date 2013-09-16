@@ -4,8 +4,9 @@
 @import "normalize.less";
 
 body{
-  font-family: "Microsoft Yahei";
+  font-family: "Microsoft Yahei", sans-serif;
   font-size: @font-size-normal;
+  background-color: @body-background-color;
 }
 
 @import "type";
@@ -45,6 +46,8 @@ body{
 
 #header{
   background-color: @header-background-color;
+  margin-bottom: 20px;
+  border-bottom: 1px solid darken(@header-background-color, 5%);
   .header-inner{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -63,11 +66,23 @@ body{
   }
 }
 
+.block{
+  padding: 10px;
+  background-color: #fff;
+  //  border: 1px solid #d6d6d6;
+  margin-bottom: 10px;
+  .border-radius(3px);
+  .box-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+}
+
+@import "glyphicons";
+
 @import "grid";
 @import "forms";
 @import "buttons";
 @import "dropdown";
 @import "tipbox";
 @import "tiptext";
+@import "pagination";
 
 @import "sites/u";

@@ -2,13 +2,19 @@
 @import "../mixins";
 @import "../untitled";
 
-.pet-profile{
+.u-user-profile{
+}
+
+.u-pet-profile-box{
+}
+
+.u-pet-profile{
   line-height: 24px;
   .clearfix;
-  .pet-profile-avatar{
+  .u-pet-profile-avatar{
     .pull-left;
   }
-  .pet-profile-content{
+  .u-pet-profile-content{
     a{
       color: @orange;
       text-decoration: none;
@@ -17,13 +23,50 @@
       }
     }
     font-size: @font-size-small;
-    padding: 0 10px;
-    .pull-left;
-    .pet-profile-item{
-      &.pet-profile-name{
+    padding-left: 5px;
+    margin-left: 60px;
+    .u-pet-profile-item{
+      &.u-pet-profile-name{
         font-size: @font-size-normal;
         font-weight: 800;
       }
     }
+  }
+}
+
+.u-post-item{
+  .font-12;
+  margin-bottom: 5px;
+  .underline;
+  .u-post-item-info{
+    height: 30px;
+    .u-post-item-avatar{
+      .pull-left;
+      width: 30px;
+      height: 30px;
+    }
+    .u-post-item-user-name{
+      .text-default;
+      a{
+        .text-default;
+      }
+    }
+    .u-post-item-pet-name{
+      font-weight: 800;
+      .text-primary;
+      a{
+        .text-primary;
+      }
+    }
+    .u-post-item-time{
+      .text-default;
+    }
+    .u-post-item-other{
+      margin-left: 40px;
+      margin-bottom: 5px;
+    }
+  }
+  .u-post-item-content{
+    margin-bottom: 5px;
   }
 }

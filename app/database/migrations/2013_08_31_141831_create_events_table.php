@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration {
             $table->string('content', 255);
             $table->integer('num_of_posts');
             $table->tinyInteger('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
