@@ -1094,7 +1094,6 @@ h6.ui-title .ui-sub-title {
 }
 .ui-form .ui-form-item .ui-form-explain {
   clear: both;
-  color: #b31d14;
 }
 .ui-form .ui-form-item .ui-textarea {
   float: left;
@@ -1352,8 +1351,10 @@ h6 .btn {
 .ui-tiptext a {
   color: #0084c6;
 }
+.ui-tiptext.ui-tiptext-success {
+  color: #468847;
+}
 .ui-tiptext.ui-tiptext-success .ui-tiptext-icon {
-  color: #b9e2a0;
   font-size: 14px;
 }
 .ui-tiptext.ui-tiptext-success .ui-tiptext-icon:before {
@@ -1390,8 +1391,10 @@ h6 .btn {
 
   content: '\e803';
 }
+.ui-tiptext.ui-tiptext-error {
+  color: #b94a48;
+}
 .ui-tiptext.ui-tiptext-error .ui-tiptext-icon {
-  color: #fadcd3;
   font-size: 14px;
 }
 .ui-tiptext.ui-tiptext-error .ui-tiptext-icon:before {
@@ -1428,8 +1431,10 @@ h6 .btn {
 
   content: '\e802';
 }
+.ui-tiptext.ui-tiptext-message {
+  color: #3a87ad;
+}
 .ui-tiptext.ui-tiptext-message .ui-tiptext-icon {
-  color: #b2e2ea;
   font-size: 14px;
 }
 .ui-tiptext.ui-tiptext-message .ui-tiptext-icon:before {

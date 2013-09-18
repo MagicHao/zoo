@@ -43,7 +43,10 @@
 
                 <div class="ui-form-item{{$errors->has('image') ? ' ui-form-item-error' : ''}}">
                     <label class="ui-label" for="image">添加一张图片</label>
-                    <input class="ui-input" type="file" name="image" id="image" value="<?php echo Input::old('image') ?>"/>
+                    <div class="ui-file-input">
+                        <span>上传图像</span>
+                        <input class="ui-input" type="file" name="image" id="image" value="<?php echo Input::old('image') ?>"/>
+                    </div>
                     @if ($errors->has('image'))
                     <p class="ui-form-explain ui-tiptext ui-tiptext-error">
                         <i class="ui-tiptext-icon"></i>{{$errors->first('image')}}
