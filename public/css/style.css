@@ -986,6 +986,9 @@ h6.ui-title .ui-sub-title {
 .clearfix:after {
   clear: both;
 }
+.ui-form img {
+  vertical-align: bottom;
+}
 .ui-form .ui-form-item {
   padding: 0 0 20px 110px;
   *zoom: 1;
@@ -1035,7 +1038,6 @@ h6.ui-title .ui-sub-title {
   width: 210px;
   font-size: 12px;
   color: #808080;
-  height: 30px;
   line-height: 30px;
   margin: 0;
 }
@@ -1056,6 +1058,39 @@ h6.ui-title .ui-sub-title {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+}
+.ui-form .ui-form-item .ui-file-input {
+  position: relative;
+  float: left;
+  text-align: center;
+  width: 100px;
+  overflow: hidden;
+  height: 28px;
+  line-height: 28px;
+  color: #ffffff;
+  font-weight: 800;
+  background-color: #f25a4b;
+  border: 1px solid #ef2e1c;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.ui-form .ui-form-item .ui-file-input:hover {
+  background-color: #f14433;
+  border-color: #e12310;
+}
+.ui-form .ui-form-item .ui-file-input .ui-input {
+  position: absolute;
+  width: 200px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  /* 实现的关键点 */
+
+  filter: alpha(opacity=0);
+  /* 兼容IE */
+
+  cursor: pointer;
 }
 .ui-form .ui-form-item .ui-form-explain {
   clear: both;

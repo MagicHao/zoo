@@ -60,7 +60,7 @@ class PetController extends BaseController {
                 $processor = new Services\ImageProcessors\AvatarImageProcessor(Auth::user()->id, $pet);
                 $processor->process(Input::file('avatar'));
             }
-            return Redirect::action('PetController@getEdit', array($id));
+            return Redirect::action('PetController@getEdit', array($id))->with('redirect_notice', '已更新宠物信息。');
         } else {
             return Redirect::action('PetController@getEdit', array($id))->withErrors($pet->getErrors())->withInput();
         }

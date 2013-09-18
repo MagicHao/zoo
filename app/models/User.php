@@ -13,6 +13,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $avatar
  * @property string $avatarPath
  * @property string $num_of_pets;
+ * @property string $num_of_posts;
+ * @property string $num_of_visits;
  * @property string $last_ip;
  * @property string $last_time;
  * @property string $created_time;

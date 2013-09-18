@@ -46,13 +46,18 @@
 
                 <div class="ui-form-item{{$errors->has('avatar') ? ' ui-form-item-error' : ''}}">
                     <label class="ui-label" for="avatar">头像</label>
-                    <input class="ui-input" type="file" name="avatar" id="avatar" value="<?php echo Input::old('avatar') ?>"/>
-                <span class="ui-form-other">
-                    <img src="{{$user->avatarPath}}" alt="{{$user->username}}" width="32"/>
-                </span>
+                    <div class="ui-file-input">
+                        上传图像
+                        <input class="ui-input" type="file" name="avatar" id="avatar" value="<?php echo Input::old('avatar') ?>"/>
+                    </div>
                     @if ($errors->has('avatar'))
                     <p class="ui-tiptext ui-tiptext-error">{{$errors->first('avatar')}}</p>
                     @endif
+                </div>
+
+                <div class="ui-form-item">
+                    <label class="ui-label" for="avatarPreview"></label>
+                    <div class="ui-form-text"><img width="100" src="{{$user->avatarPath}}" alt="{{$user->username}}"/></div>
                 </div>
 
                 <div class="ui-form-item">

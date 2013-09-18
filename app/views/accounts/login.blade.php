@@ -27,7 +27,7 @@
 
                 <div class="ui-form-item{{$errors->has('email') ? ' ui-form-item-error' : ''}}">
                     <label for="email" class="ui-label">E-mail</label>
-                    <input class="ui-input" type="text" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>"/>
+                    <input class="ui-input" type="email" name="email" id="email" placeholder="E-mail" value="<?php echo Input::old('email') ?>" required />
                     @if ($errors->has('email'))
                     <p class="ui-form-explain ui-tiptext ui-tiptext-error">
                         <i class="ui-tiptext-icon"></i>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="ui-form-item{{$errors->has('password') ? ' ui-form-item-error' : ''}}">
                     <label for="password" class="ui-label">密码</label>
-                    <input class="ui-input" type="password" name="password" id="password" placeholder="密码"/>
+                    <input class="ui-input" type="password" name="password" id="password" placeholder="密码" required />
                     @if ($errors->has('password'))
                     <p class="ui-form-explain ui-tiptext ui-tiptext-error"><i class="ui-tiptext-icon"></i>{{$errors->first('password')}}</p>
                     @endif

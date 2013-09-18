@@ -9,6 +9,8 @@ class Observer {
         /* @var $post \Post */
         $post->pet->num_of_posts++;
         $post->pet->save();
+        $post->pet->user->num_of_posts++;
+        $post->pet->user->save();
     }
 
 }

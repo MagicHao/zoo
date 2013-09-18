@@ -7,7 +7,7 @@
     <script type="text/javascript" src="<?php echo URL::asset('seajs/sea.js') ?>"></script>
     <script type="text/javascript">
         seajs.config({
-            base: "seajs/",
+            base: "seajs",
             alias: {
                 "jquery": "jquery/jquery.min.js"
             }

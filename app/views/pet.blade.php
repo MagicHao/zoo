@@ -53,6 +53,16 @@
                                 @endif
                             </div>
                             <div class="u-pet-profile-item">
+                                <dl>
+                                    <dt>1</dt>
+                                    <dd>1</dd>
+                                </dl>
+                                生日：{{$pet->birthdate}}
+                            </div>
+                            <div class="u-pet-profile-item">
+                                性别：{{$pet->gender}}
+                            </div>
+                            <div class="u-pet-profile-item">
                                 入住时间：{{$pet->created_at->format('Y-m-d')}}
                             </div>
                         </div>

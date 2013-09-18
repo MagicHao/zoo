@@ -3,6 +3,9 @@
 @import "untitled";
 
 .ui-form{
+  img{
+    vertical-align: bottom;
+  }
   .ui-form-item{
     .padding(0 0 20px 110px);
     .clearfix;
@@ -29,7 +32,6 @@
       width: 210px;
       font-size: @font-size-small;
       color: @gray;
-      height: @input-height;
       line-height: @input-height;
       margin: 0;
     }
@@ -47,6 +49,33 @@
       .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
       .border-radius(2px);
       &.ui-input-disabled{
+      }
+    }
+    .ui-file-input{
+      position: relative;
+      .pull-left;
+      .text-center;
+      width: 100px;
+      overflow: hidden;
+      height: @input-height - 2;
+      line-height: @input-height - 2;
+      color: @white;
+      font-weight: 800;
+      background-color: @btn-orange-background-color;
+      border: 1px solid @btn-orange-border-color;
+      .border-radius(3px);
+      &:hover{
+        background-color: darken(@btn-orange-background-color, 5%);
+        border-color: darken(@btn-orange-border-color, 5%);
+      }
+      .ui-input{
+        position: absolute;
+        width: 200px;
+        right: 0;
+        top: 0;
+        opacity: 0; /* 实现的关键点 */
+        filter:alpha(opacity=0);/* 兼容IE */
+        cursor: pointer;
       }
     }
     .ui-form-explain{
