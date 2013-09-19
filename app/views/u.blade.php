@@ -27,7 +27,7 @@
             <div class="block">
                 <h2 class="ui-underline">碎碎念</h2>
                 @foreach ($posts as $post)
-                <div class="u-post-item">
+                <div class="u-post-item ui-underline">
                     <div class="u-post-item-info">
                         <span class="u-post-item-avatar"><img src="{{$post->pet->avatarPath}}" alt="{{$post->pet->name}}" width="30" /></span>
                         <div class="u-post-item-other"><span class="u-post-item-pet-name">{{HTML::link(URL::route('pet', array($post->pet->id)), HTML::entities($post->pet->name))}}</span> 在 <span class="u-post-item-time">{{$post->created_at->format('Y-m-d H:i')}}</span> 说:</div>

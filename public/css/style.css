@@ -439,7 +439,6 @@ a:hover {
   clear: both;
 }
 .ui-underline {
-  padding-bottom: 5px;
   border-bottom: 1px solid #cccccc;
 }
 .global-nav-bar {
@@ -1353,9 +1352,7 @@ a.ui-button {
   font-weight: 800;
 }
 .u-post-item {
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #cccccc;
+  margin-bottom: 10px;
 }
 .u-post-item .u-post-item-info {
   height: 30px;
