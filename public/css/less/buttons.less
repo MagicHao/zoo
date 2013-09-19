@@ -5,88 +5,41 @@
   font-weight: 800;
   .border-radius(2px);
   .padding(0 15px);
-  &.ui-button-swhite{
-    color: @darkGray;
+  &.ui-button-default{
+    color: @btn-default-color;
+    font-size: @font-size-base;
+    height: @btn-height-base;
+    line-height: @btn-height-base;
+    background-color: @btn-default-bg;
+    border: 1px solid @btn-default-border;
+    &:hover, &:focus{
+      background-color: lighten(@btn-default-bg, 5%);
+    }
+  }
+  &.ui-button-primary{
+    color: @btn-primary-color;
+    font-size: @font-size-base;
+    height: @btn-height-base;
+    line-height: @btn-height-base;
+    background-color: @btn-primary-bg;
+    border: 1px solid @btn-primary-border;
+    &:hover, &:focus{
+      background-color: lighten(@btn-primary-bg, 5%);
+    }
+  }
+  &.ui-button-sm{
     font-size: @font-size-small;
-    height: @btn-small-height;
-    line-height: @btn-small-height;
-    background-color: @btn-white-background-color;
-    border: 1px solid @btn-white-border-color;
-    &:hover, &:focus{
-      background-color: lighten(@btn-white-background-color, 10%);
-      border: 1px solid darken(@btn-white-border-color, 10%);
-    }
+    height: @btn-height-small;
+    line-height: @btn-height-small;
   }
-  &.ui-button-mwhite{
-    color: @darkGray;
-    font-size: @font-size-normal;
-    height: @btn-medium-height;
-    line-height: @btn-medium-height;
-    background-color: @btn-white-background-color;
-    border: 1px solid @btn-white-border-color;
-    &:hover, &:focus{
-      background-color: lighten(@btn-white-background-color, 10%);
-      border: 1px solid darken(@btn-white-border-color, 10%);
-    }
-  }
-  &.ui-button-lwhite{
-    color: @darkGray;
-    font-size: @font-size-normal;
-    height: @btn-large-height;
-    line-height: @btn-large-height;
-    background-color: @btn-white-background-color;
-    border: 1px solid @btn-white-border-color;
-    &:hover, &:focus{
-      background-color: lighten(@btn-white-background-color, 10%);
-      border: 1px solid darken(@btn-white-border-color, 10%);
-    }
-  }
-  &.ui-button-sorange{
-    color: @white;
-    font-size: @font-size-small;
-    height: @btn-small-height;
-    line-height: @btn-small-height;
-    background-color: @btn-orange-background-color;
-    border: 1px solid @btn-orange-border-color;
-    &:hover, &:focus{
-      background-color: darken(@btn-orange-background-color, 10%);
-      border: 1px solid darken(@btn-orange-border-color, 10%);
-    }
-  }
-  &.ui-button-morange{
-    color: @white;
-    font-size: @font-size-normal;
-    height: @btn-medium-height;
-    line-height: @btn-medium-height;
-    background-color: @btn-orange-background-color;
-    border: 1px solid @btn-orange-border-color;
-    &:hover, &:focus{
-      background-color: darken(@btn-orange-background-color, 10%);
-      border: 1px solid darken(@btn-orange-border-color, 10%);
-    }
-  }
-  &.ui-button-lorange{
-    color: @white;
-    font-size: @font-size-normal;
-    height: @btn-large-height;
-    line-height: @btn-large-height;
-    background-color: @btn-orange-background-color;
-    border: 1px solid @btn-orange-border-color;
-    &:hover, &:focus{
-      background-color: darken(@btn-orange-background-color, 10%);
-      border: 1px solid darken(@btn-orange-border-color, 10%);
-    }
+  &.ui-button-lg{
+    font-size: @font-size-large;
+    height: @btn-height-large;
+    line-height: @btn-height-large;
   }
 }
 
 a.ui-button{
   text-decoration: none;
   display: inline-block;
-}
-
-h1, h2, h3, h4, h5, h6{
-  .btn{
-    height: 24px;
-    line-height: 24px;
-  }
 }

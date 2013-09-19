@@ -6,14 +6,14 @@
   .dropdown-menu{
     display: none;
     .padding(0);
-    .border-radius(2px);
+    .border-radius(@border-radius-small);
     list-style: none;
     position: absolute;
     background-color: #fff;
     top: @global-nav-bar-height;
     right: 0;
     text-align: center;
-    border: 1px solid @input-border-color;
+    border: 1px solid @input-border;
     .box-shadow(0 3px 3px rgba(0, 0, 0, 0.10));
     li{
       a{
@@ -21,10 +21,10 @@
         display: block;
         width: 100px;
         color: black;
-        .padding(0 10px);
+        .padding(0 @padding-base-horizontal);
         &:hover{
-          color: @lightGray;
-          background-color: lighten(@lightGray, 25%);
+          color: @gray-lighter;
+          background-color: @gray-light;
         }
       }
     }

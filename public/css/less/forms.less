@@ -1,6 +1,5 @@
 @import "variables.less";
 @import "mixins.less";
-@import "untitled";
 
 .ui-form{
   img{
@@ -14,17 +13,20 @@
     }
     &.ui-form-item-error{
       .ui-input{
-        color: @color-error;
-        border: 1px solid @color-error;
+        color: @input-error-color;
+        border: 1px solid @input-error-border;
+      }
+      .ui-tiptext{
+        color: #8B0000;
       }
     }
     .ui-label{
       float: left;
       color: @gray;
       .text-right;
-      line-height: @input-height;
+      line-height: @input-height-base;
       width: 110px;
-      height: @input-height;
+      height: @input-height-base;
       margin-left: -120px;
     }
     .ui-form-text{
@@ -32,19 +34,19 @@
       width: 210px;
       font-size: @font-size-small;
       color: @gray;
-      line-height: @input-height;
+      line-height: @input-height-base;
       margin: 0;
     }
     .ui-form-required{
-      color: @color-error;
+      color: @btn-danger-color;
     }
     .ui-input{
       .pull-left;
       width: 210px;
-      height: @input-height - 5 * 2;
-      line-height: @input-height - 5 * 2;
+      height: @input-height-base - 5 * 2;
+      line-height: @input-height-base - 5 * 2;
       padding: 5px;
-      border: 1px solid @lightGray;
+      border: 1px solid @input-border;
       width: 200px;
       .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
       .border-radius(2px);
@@ -57,56 +59,55 @@
       .text-center;
       width: 100px;
       overflow: hidden;
-      height: @input-height - 2;
-      line-height: @input-height - 2;
-      color: @white;
+      height: @input-height-base - 2;
+      line-height: @input-height-base - 2;
+      color: @gray-lighter;
       font-weight: 800;
-      background-color: @btn-orange-background-color;
-      border: 1px solid @btn-orange-border-color;
-      .border-radius(3px);
+      background-color: @btn-primary-bg;
+      border: 1px solid @btn-primary-border;
+      .border-radius(@input-border-radius);
       &:hover{
-        background-color: darken(@btn-orange-background-color, 5%);
-        border-color: darken(@btn-orange-border-color, 5%);
+        background-color: darken(@btn-primary-bg, 5%);
+        border-color: darken(@btn-primary-border, 5%);
       }
       .ui-input{
         position: absolute;
         width: 200px;
         right: 0;
         top: 0;
-        opacity: 0; /* 实现的关键点 */
+        opacity: 0;
         filter:alpha(opacity=0);/* 兼容IE */
         cursor: pointer;
       }
     }
     .ui-form-explain{
       clear:both;
+      margin: 0;
+      padding: @padding-base-vertical 0;
     }
     .ui-textarea{
       .pull-left;
       width: 210px;
-      height: @input-height * 3;
-      line-height: @input-height - 10;
+      height: @input-height-base * 3;
+      line-height: @input-height-base - 10;
       padding: 5px;
-      border: 1px solid @lightGray;
-      width: @input-height * 15;
+      border: 1px solid @input-border;
+      width: @input-height-base * 15;
       .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
-      .border-radius(2px);
+      .border-radius(@input-border)
     }
     select{
-      height: @input-height;
-      border: 1px solid @lightGray;
+      height: @input-height-base;
+      border: 1px solid @input-border;
       .border-radius(2px);
       .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
     }
     .ui-form-other{
-      color: @darkGray;
+      color: @gray-darker;
       font-size: @font-size-small;
       margin-left: 5px;
-      height: @input-height;
-      line-height: @input-height;
-      a{
-        color: @orange;
-      }
+      height: @input-height-base;
+      line-height: @input-height-base;
     }
   }
 }

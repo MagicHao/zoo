@@ -16,7 +16,7 @@
     <div class="ui-grid-row">
         <div class="ui-grid-24">
             <div class="block">
-                <h1 class="ui-title">需要添加一个新的宠物吗？</h1>
+                <h1 class="ui-underline">需要添加一个新的宠物吗？</h1>
                 <?php echo Form::open(array('class'=>'ui-form', 'files'=>true)) ?>
 
                 <div class="ui-form-item{{$errors->has('name') ? ' ui-form-item-error' : ''}}">
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="ui-form-item">
-                    <input type="submit" class="ui-button ui-button-morange" value="入住"/>
+                    <input type="submit" class="ui-button ui-button-primary" value="入住"/>
                 </div>
                 <?php echo Form::close() ?>
             </div>

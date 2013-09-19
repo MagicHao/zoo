@@ -16,19 +16,19 @@
     <div class="ui-grid-row">
         <div class="ui-grid-24">
             <div class="block">
-                <h1 class="ui-title">
+                <h1 class="ui-underline">
                     个人基本信息
                 <span class="ui-sub-title pull-right">
-                @if ($user->num_of_pets < User::PETS_MAX)
-                <a class="ui-button ui-button-sorange" href="<?php echo URL::action('PetController@getAdd') ?>">添加宠物</a>
+                @if ($user->canAddPet)
+                <a class="ui-button ui-button-primary ui-button-sm" href="<?php echo URL::action('PetController@getAdd') ?>">添加宠物</a>
                 @else
                 您的宠物个数已经为最大允许数: {{User::PETS_MAX}}
                 @endif
                 </span>
                 </h1>
                 @if (Session::has('redirect_notice'))
-                <div class="ui-tiptext-container ui-tiptext-container-success">
-                    <p class="ui-tiptext ui-tiptext-success">
+                <div class="ui-tiptext-container ui-tiptext-container-message">
+                    <p class="ui-tiptext ui-tiptext-message">
                         <i class="ui-tiptext-icon"></i>
                         {{Session::get('redirect_notice')}}
                     </p>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="ui-form-item">
-                    <input type="submit" class="ui-button ui-button-morange" value="保存"/>
+                    <input type="submit" class="ui-button ui-button-primary" value="保存"/>
                 </div>
                 <?php echo Form::close() ?>
             </div>

@@ -10,7 +10,7 @@
     <div class="ui-grid-row">
         <div class="ui-grid-15 ui-grid-push-5">
             <div class="block">
-                <h1 class="ui-title">注册</h1>
+                <h1 class="ui-underline">注册</h1>
 
                 <?php echo Form::open(array('class'=>'ui-form')) ?>
 
@@ -40,7 +40,7 @@
                     @endif
                 </div>
                 <div class="ui-form-item">
-                    <input type="submit" class="ui-button ui-button-morange" value="注册"/>
+                    <input type="submit" class="ui-button ui-button-primary" value="注册"/>
                 </div>
                 <?php echo Form::close() ?>
             </div>

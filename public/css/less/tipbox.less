@@ -4,23 +4,24 @@
 .ui-tipbox{
   position: relative;
   margin-bottom: 10px;
-  line-height: 22px;
+  line-height: @line-height-base;
   .min-height(60px);
   .ui-tipbox-icon{
     position: absolute;
-    top: 10px;
     left: 40px;
+    top: 10px;
     width: 40px;
     height: 40px;
-    background-color: #ccc;
+    font-size: 40px;
+    line-height: 1;
+    font-family: 'fontello';
   }
   .ui-tipbox-content{
     margin: 10px 10px 10px 100px;
-    color: @gray;
     font-size: @font-size-small;
     .ui-tipbox-title{
-      color: @darkGray;
-      font-size: @font-size-normal;
+      color: @gray-dark;
+      font-size: @font-size-base;
       font-weight: 800;
     }
     .ui-tipbox-explain{
@@ -28,7 +29,7 @@
       padding: 0;
       a{
         text-decoration: none;
-        color: @tipbox-link-color;
+        color: @gray-light;
         &:hover{
           text-decoration: underline;
         }
@@ -36,11 +37,15 @@
     }
   }
   &.ui-tipbox-message{
-    background-color: @message-background-color;
-    border: 1px solid @message-border-color;
+    background-color: @tipbox-message-bg;
+    border: 1px solid @tipbox-message-border;
   }
-  &.ui-tipbox-error{
-    background-color: @error-background-color;
-    border: 1px solid @error-border-color;
+  &.ui-tipbox-danger{
+    background-color: @tipbox-danger-bg;
+    border: 1px solid @tipbox-danger-border;
+    .ui-tipbox-icon{
+      color: @tipbox-danger-color;
+      &:before { content: '\e808'; }
+    }
   }
 }

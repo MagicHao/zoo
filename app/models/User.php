@@ -11,7 +11,6 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $password
  * @property string $gender
  * @property string $avatar
- * @property string $avatarPath
  * @property string $num_of_pets;
  * @property string $num_of_posts;
  * @property string $num_of_visits;
@@ -19,6 +18,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $last_time;
  * @property string $created_time;
  * @property string $updated_time;
+ *
+ * @property string $avatarPath
+ * @property boolean canAddPet
  *
  * @property Pet[] $pets
  * @property Post[] $posts
@@ -120,24 +122,8 @@ class User extends Model implements UserInterface, RemindableInterface {
         return $this->hasMany('PostImage');
     }
 
-    public function updateAvatar(\Symfony\Component\HttpFoundation\File\UploadedFile $file)
+    public function getCanAddPetAttribute($value)
     {
-        $helper = Helper::instance();
-        $uploadDir = $helper->getUploadDir($this->id);
-        $tmpUploadDir = $uploadDir . 'tmp';
-        if ($this->avatar) {
-            File::delete($helper->getUploadURL($this->id, $this->avatar));
-        } elseif (!File::isDirectory($tmpUploadDir)) {
-            File::makeDirectory($tmpUploadDir);
-        }
-        $filename = $helper->makeFilename();
-        $fullFilename = $filename . '.' . $file->getClientOriginalExtension();
-        $file = $file->move($tmpUploadDir, $fullFilename);
-        $image = new ImageContainer($file->getPathname());
-        $filePath = $uploadDir . $fullFilename;
-        $image->smart_crop(400, 400)->save($filePath, 70);
-        File::deleteDirectory($tmpUploadDir);
-        $this->avatar = $fullFilename;
-        $this->save();
+        return count($this->pets) < self::PETS_MAX;
     }
 }

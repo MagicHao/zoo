@@ -16,7 +16,7 @@
     <div class="ui-grid-row">
         <div class="ui-grid-24">
             <div class="block">
-                <h1 class="ui-title">修改宠物</h1>
+                <h1 class="ui-underline">修改宠物</h1>
                 @if (Session::has('redirect_notice'))
                 <div class="ui-tiptext-container ui-tiptext-container-success">
                     <p class="ui-tiptext ui-tiptext-success">
@@ -31,7 +31,7 @@
                     <label class="ui-label" for="name">这个娃叫</label>
                     <input class="ui-input" type="text" name="name" id="name" placeholder="娃的名字" value="<?php echo $pet->name ?>" required/>
                     @if ($errors->has('name'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('name')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('name')}}</p>
                     @endif
                 </div>
 
@@ -39,7 +39,7 @@
                     <label class="ui-label" for="gender">这个娃是</label>
                     {{Form::select('gender', array('m'=>'男娃', 'f'=>'女娃', 's'=>'不清楚'), $pet->gender)}}
                     @if ($errors->has('gender'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('gender')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('gender')}}</p>
                     @endif
                 </div>
 
@@ -48,7 +48,7 @@
                     <input class="ui-input" type="text" name="birthdate" id="birthdate" placeholder="娃的生日" value="<?php echo $pet->birthdate ?>" required/>
                     <span class="ui-form-other">生日格式为： xxxx-xx-xx</span>
                     @if ($errors->has('birthdate'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('birthdate')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('birthdate')}}</p>
                     @endif
                 </div>
 
@@ -59,7 +59,7 @@
                         <input class="ui-input" type="file" name="avatar" id="avatar" value="<?php echo Input::old('avatar') ?>"/>
                     </div>
                     @if ($errors->has('avatar'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('avatar')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('avatar')}}</p>
                     @endif
                 </div>
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="ui-form-item">
-                    <input type="submit" class="ui-button ui-button-morange" value="保存"/>
+                    <input type="submit" class="ui-button ui-button-primary" value="保存"/>
                 </div>
                 <?php echo Form::close() ?>
             </div>

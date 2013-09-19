@@ -17,7 +17,7 @@
     <div class="ui-grid-row">
         <div class="ui-grid-24">
             <div class="block">
-                <h1 class="ui-title">发布一条碎碎念</h1>
+                <h1 class="ui-underline">发布一条碎碎念</h1>
                 <?php echo Form::open(array('class'=>'ui-form', 'files'=>true)) ?>
 
                 <div class="ui-form-item{{$errors->has('pet_id') ? ' ui-form-item-error' : ''}}">
@@ -33,7 +33,7 @@
 
                 <div class="ui-form-item{{$errors->has('content') ? ' ui-form-item-error' : ''}}">
                     <label class="ui-label" for="content">要说的话</label>
-                    <textarea class="ui-textarea" name="content" id="content">{{Input::old('content')}}</textarea>
+                    <textarea class="ui-textarea" name="content" id="content" required>{{Input::old('content')}}</textarea>
                     @if ($errors->has('content'))
                     <p class="ui-form-explain ui-tiptext ui-tiptext-error">
                         <i class="ui-tiptext-icon"></i>{{$errors->first('content')}}
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="ui-form-item">
-                    <input type="submit" class="ui-button ui-button-morange" value="发布"/>
+                    <input type="submit" class="ui-button ui-button-primary" value="发布"/>
                 </div>
                 <?php echo Form::close() ?>
             </div>

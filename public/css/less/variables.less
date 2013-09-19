@@ -1,53 +1,134 @@
+// Grays
+// -------------------------
+
+@gray-darker:            lighten(#000, 13.5%); // #222
+@gray-dark:              lighten(#000, 20%);   // #333
+@gray:                   lighten(#000, 33.5%); // #555
+@gray-light:             lighten(#000, 60%);   // #999
+@gray-lighter:           lighten(#000, 93.5%); // #eee
+
+// Scaffolding
+@body-bg:                         #ededeb;
+@text-color:                      @gray-dark;
+
+// Links
+// -------------------------
+
+@link-color:            #0084c6;
+@link-hover-color:      darken(@link-color, 15%);
+
+// Typography
+// -------------------------
+
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          14px;
+@font-size-large:         ceil(@font-size-base * 1.25); // ~18px
+@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+
+@font-size-h1:            floor(@font-size-base * 1.72); // ~24px
+@font-size-h2:            floor(@font-size-base * 1.43); // ~20px
+@font-size-h3:            ceil(@font-size-base * 1.15); // ~16px
+@font-size-h4:            ceil(@font-size-base * 1); // ~14px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil(@font-size-base * 0.85); // ~12px
+
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
+
+@headings-font-family:    @font-family-base;
+@headings-font-weight:    800;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+// Components
+// -------------------------
+// Based on 14px font-size and 1.428 line-height (~20px to start)
+
+@padding-base-vertical:          4px;
+@padding-base-horizontal:        15px;
+
+@padding-large-vertical:         6px;
+@padding-large-horizontal:       20px;
+
+@padding-small-vertical:         2px;
+@padding-small-horizontal:       10px;
+
+@line-height-large:              1.33;
+@line-height-small:              1.5;
+
+@border-radius-base:             2px;
+@border-radius-large:            5px;
+@border-radius-small:            1px;
+
+//nav
 @global-nav-bar-height:           40px;
 @global-nav-bar-background-color: #f47063;
-
-@body-background-color:           #ededeb;
 @header-background-color:         darken(#ededeb, 5%);
 
-@input-placeholder-color:         #aaa;
-@input-border-color:              #ccc;
-@input-height: 30px;
+//form
+@input-bg:                       #fff;
+@input-bg-disabled:              @gray-lighter;
 
-@font-size-normal:  14px;
-@font-size-small:   12px;
+@input-color:                    @gray;
+@input-border:                   #ccc;
+@input-border-radius:            @border-radius-base;
+@input-border-focus:             #66afe9;
 
-@white: #fff;
-@lightGray:  darken(#fff, 30%);
-@gray:  darken(#fff, 50%);
-@darkGray:  darken(#fff, 70%);
-@color-error: #b31d14;
-@black: #000;
-@orange: @global-nav-bar-background-color;
+@input-color-placeholder:        @gray-light;
 
-@color-default: #999;
-@color-primary: #428bca;
-@color-success: #468847;
-@color-message: #3a87ad;
-@color-warning: #c09853;
-@color-danger: #b94a48;
+@input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
+@input-height-large:             (floor(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
+@input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
+
+@input-error-color:               #8B0000;
+@input-error-border:              #8B0000;
 
 //pagination
 @pagination-item-background-color: #f3f3f3;
 @pagination-item-text-color: gray;
 @pagination-item-active-background-color: @global-nav-bar-background-color;
-@pagination-item-active-text-color: @white;
+@pagination-item-active-text-color: #fff;
 
 //button
 
-@btn-small-height: 24px;
-@btn-medium-height: 28px;
-@btn-large-height: 32px;
+@btn-height-small: @input-height-small;
+@btn-height-base: @input-height-base;
+@btn-height-large: @input-height-large;
 
-@btn-white-background-color: darken(@white, 5%);
-@btn-white-border-color: darken(@lightGray, 5%);
-@btn-orange-background-color: darken(@orange, 5%);
-@btn-orange-border-color: darken(@orange, 15%);
-@btn-disabled-background-color: @lightGray;
-@btn-disabled-background-color: @gray;
+@btn-font-weight:                normal;
 
-// Type
+@btn-default-color:              #777;
+@btn-default-bg:                 #f3f3f3;
+@btn-default-border:             #afafaf;
 
-@border-bottom-color: #ddd;
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 #f57403;
+@btn-primary-border:             darken(@btn-primary-bg, 5%);
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 #ddd;
+@btn-success-border:             darken(@btn-success-bg, 5%);
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 #ddd;
+@btn-warning-border:             darken(@btn-warning-bg, 5%);
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  #ddd;
+@btn-danger-border:              darken(@btn-danger-bg, 5%);
+
+@btn-message-color:                 #fff;
+@btn-message-bg:                    #ddd;
+@btn-message-border:                darken(@btn-message-bg, 5%);
+
+@btn-link-disabled-color:        @gray-light;
+
+// Grid system
+// --------------------------------------------------
 
 // Number of columns in the grid system
 @grid-columns:              24;
@@ -56,13 +137,33 @@
 @grid-gutter-width:        10px;
 
 //  Tipbox
-@tipbox-link-color: #0084c6;
 
-@success-border-color: #b9e2a0;
-@success-background-color: #e7ffce;
+@tipbox-default-color:              #333;
+@tipbox-default-bg:                 #fff;
+@tipbox-default-border:             #ccc;
 
-@message-border-color: #b2e2ea;
-@message-background-color: #e5f2f8;
+@tipbox-primary-color:              #fff;
+@tipbox-primary-bg:                 #ddd;
+@tipbox-primary-border:             darken(@tipbox-primary-bg, 5%);
 
-@error-border-color: #FADCD3;
-@error-background-color: #FDEEE9;
+@tipbox-success-color:              #fff;
+@tipbox-success-bg:                 #e7ffce;
+@tipbox-success-border:             #b9e2a0;
+
+@tipbox-warning-color:              #fff;
+@tipbox-warning-bg:                 #ddd;
+@tipbox-warning-border:             darken(@tipbox-warning-bg, 5%);
+
+@tipbox-danger-color:               @input-error-color;
+@tipbox-danger-bg:                  #fdeee9;
+@tipbox-danger-border:              #fadcd3;
+
+@tipbox-message-color:              #fff;
+@tipbox-message-bg:                 #e5f2f8;
+@tipbox-message-border:             #b2e2ea;
+
+// Iconography
+// -------------------------
+
+@icon-font-path:          "fonts/";
+@icon-font-name:          "fontello";

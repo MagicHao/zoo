@@ -4,9 +4,9 @@
 @import "normalize.less";
 
 body{
-  font-family: "Microsoft Yahei", sans-serif;
-  font-size: @font-size-normal;
-  background-color: @body-background-color;
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  background-color: @body-bg;
 }
 
 @import "type";
@@ -35,10 +35,10 @@ body{
     a{
       display: block;
       .padding(0 15px);
-      color: darken(@white, 10%);
+      color: @gray-lighter;
       text-decoration: none;
       &:hover{
-        color: @white;
+        color: #fff;
       }
     }
   }
@@ -57,9 +57,9 @@ body{
       .margin(0);
       a{
         text-decoration: none;
-        color: @darkGray;
+        color: @gray-dark;
         &:hover{
-          color: @black;
+          color: @gray-darker;
         }
       }
     }
@@ -84,5 +84,6 @@ body{
 @import "tipbox";
 @import "tiptext";
 @import "pagination";
+@import "glyphicons";
 
 @import "sites/u";

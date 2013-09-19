@@ -17,7 +17,7 @@
     <div class="ui-grid-row">
         <div class="ui-grid-16">
             <div class="block">
-                <h1 class="ui-title">{{$user->username}} 的资料</h1>
+                <h1 class="ui-underline">{{$user->username}} 的资料</h1>
                 <div class="u-user-profile">
                     <div class="u-user-profile-avatar">
                         {{HTML::image($user->avatarPath, $user->username, array('width'=>150))}}
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="block">
-                <h2 class="ui-title">碎碎念</h2>
+                <h2 class="ui-underline">碎碎念</h2>
                 @foreach ($posts as $post)
                 <div class="u-post-item">
                     <div class="u-post-item-info">
@@ -47,7 +47,7 @@
         <div class="ui-grid-8">
             <div class="block">
 
-                <h2 class="ui-title">{{$user->username}} 家的孩子</h2>
+                <h2 class="ui-underline">{{$user->username}} 家的孩子</h2>
                 <div class="u-pet-profile-box">
                     @if (!$user->pets->isEmpty())
                     @foreach ($user->pets as $pet)
