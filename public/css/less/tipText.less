@@ -1,44 +1,20 @@
 @import "variables";
 @import "mixins";
 
-.text-default{
-  color:@color-default;
-}
-
-.text-primary{
-  color: @color-primary;
-}
-
-.text-success{
-  color: @color-success;
-}
-
-.text-info{
-  color: @color-message;
-}
-
-.text-warning{
-  color: @color-warning;
-}
-
-.text-danger{
-  color: @color-danger;
-}
-
 .ui-tiptext-container{
-  padding: 0 5px;
+  padding: 0 @padding-base-horizontal;
   margin-bottom: 10px;
-  &.ui-tiptext-container-error{
-    background-color: @error-background-color;
-    border: 1px solid @error-border-color;
+  &.ui-tiptext-container-danger{
+    background-color: @tipbox-danger-bg;
+    border: 1px solid @tipbox-danger-border;
   }
   &.ui-tiptext-container-message{
-    background-color: @message-background-color;
-    border: 1px solid @message-border-color;
+    background-color: @tipbox-message-bg;
+    border: 1px solid @tipbox-message-border;;
   }
   &.ui-tiptext-container-success{
-    background-color: @success-background-color;
-    border: 1px solid @success-border-color;
+    background-color: @tipbox-success-bg;
+    border: 1px solid @tipbox-success-border;
   }
 }
 
@@ -46,34 +22,36 @@
   clear: both;
   color: @gray;
   padding: 5px 0;
-  line-height: @input-height - 10;
+  line-height:@line-height-base;
   font-size: @font-size-small;
   margin: 0;
+  .ui-tiptext-icon{
+    font-family: 'fontello';
+    font-style: normal;
+    margin-right: 0.4em;
+  }
   p{
     margin: 0;
   }
-  a{
-    color: @tipbox-link-color;
-  }
   &.ui-tiptext-success{
-    color: @color-success;
     .ui-tiptext-icon{
-      font-size: @font-size-normal;
-      .icon('\e803');
+      &:before{
+        content: '\e803';
+      }
     }
   }
-  &.ui-tiptext-error{
-    color: @color-danger;
+  &.ui-tiptext-danger{
     .ui-tiptext-icon{
-      font-size: @font-size-normal;
-      .icon('\e802');
+      &:before{
+        content: '\e809';
+      }
     }
   }
   &.ui-tiptext-message{
-    color: @color-message;
     .ui-tiptext-icon{
-      font-size: @font-size-normal;
-      .icon('\e801');
+      &:before {
+        content: '\e808';
+      }
     }
   }
 }
