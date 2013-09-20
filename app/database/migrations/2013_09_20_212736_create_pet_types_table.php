@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration {
+class CreatePetTypesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,17 +11,17 @@ class CreateEventsTable extends Migration {
 	 */
     public function up()
     {
-        Schema::create('events', function($table){
+        Schema::create('pet_types', function($table){
             /* @var $table \Illuminate\Database\Schema\Blueprint */
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('title', 16);
-            $table->string('content', 255);
-            $table->unsignedInteger('num_of_posts');
+            $table->string('name', 10);
+            $table->unsignedInteger('num_of_pets')->default(0);
             $table->tinyInteger('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -31,7 +31,7 @@ class CreateEventsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('events');
+        Schema::drop('pet_types');
     }
 
 }

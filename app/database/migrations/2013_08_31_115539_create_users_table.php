@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration {
             $table->enum('gender', array('f', 'm', 's'));
             $table->string('avatar', '64')->default('');
             $table->string('num_of_pets')->default(0);
-            $table->integer('num_of_followed_pets')->default(0);
-            $table->integer('num_of_posts')->default(0);
-            $table->integer('num_of_visits')->default(0);
+            $table->unsignedInteger('num_of_followed_pets')->default(0);
+            $table->unsignedInteger('num_of_posts')->default(0);
+            $table->unsignedInteger('num_of_visits')->default(0);
             $table->tinyInteger('status')->default(0);
             $table->integer('last_ip')->default(0);
             $table->dateTime('last_time');

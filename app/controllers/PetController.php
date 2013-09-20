@@ -27,7 +27,10 @@ class PetController extends BaseController {
 
         $pet = new Pet(Input::all());
         if ($user->pets()->save($pet)) {
-            $pet->updateAvatar(Input::file('avatar'));
+            if (Input::hasFile('avatar')) {
+                $processor = new \Services\ImageProcessors\AvatarImageProcessor($user->id, $pet);
+                $processor->process(Input::file('avatar'));
+            }
             return Redirect::route('u', array($user->id));
         } else {
             return Redirect::back()->withErrors($pet->getErrors())->withInput();

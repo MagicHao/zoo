@@ -16,9 +16,9 @@
     <div class="ui-grid-row">
         <div class="ui-grid-16">
             <div class="block">
-                <h2 class="ui-title">{{$pet->name}} 的碎碎念</h2>
+                <h1 class="ui-underline">{{$pet->name}} 的碎碎念</h1>
                 @foreach ($posts as $post)
-                <div class="u-post-item">
+                <div class="u-post-item ui-underline">
                     <div class="u-post-item-info">
                         <span class="u-post-item-avatar"><img src="{{$pet->avatarPath}}" alt="{{$pet->name}}" width="30" /></span>
                         <div class="u-post-item-other"><span class="u-post-item-pet-name">{{HTML::link(URL::route('pet', array($pet->id)), HTML::entities($pet->name))}}</span> 在 <span class="u-post-item-time">{{$post->created_at->format('Y-m-d H:i')}}</span> 说:</div>
@@ -37,7 +37,7 @@
 
         <div class="ui-grid-8">
             <div class="block">
-                <h2 class="ui-title">{{$pet->name}} 的资料</h2>
+                <h1 class="ui-underline">{{$pet->name}} 的资料</h1>
                 <div class="u-pet-profile-box">
                     <div class="u-pet-profile">
                         <div class="u-pet-profile-avatar">

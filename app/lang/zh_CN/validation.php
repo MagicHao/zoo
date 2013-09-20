@@ -100,6 +100,7 @@ return array(
         'avatar'            =>  '头像',
         'content'           =>  '内容',
         'pet_id'            =>  '宠物',
+        'pet_type_id'       =>  '宠物类型',
         'image'             =>  '图像',
     ),
 

@@ -31,4 +31,19 @@ class Helper {
         $formatString = str_replace('u', $micro, $formatString);
         return date($formatString, $t);
     }
+
+    public function getGenders()
+    {
+        return array(
+            'f' => '男娃',
+            'm' => '女娃',
+            's' => '不清楚'
+        );
+    }
+
+    public function getPetTypes()
+    {
+        $petTypes = PetType::get(array('id', 'name'));
+        return $petTypes;
+    }
 }

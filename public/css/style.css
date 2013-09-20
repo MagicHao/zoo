@@ -387,6 +387,14 @@ h6 {
   line-height: 30px;
   margin: 0 0 20px 0;
 }
+h1 .pull-right,
+h2 .pull-right,
+h3 .pull-right,
+h4 .pull-right,
+h5 .pull-right,
+h6 .pull-right {
+  line-height: 0;
+}
 h1 {
   font-size: 24px;
 }
@@ -1049,6 +1057,15 @@ a:hover {
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
 }
+.ui-form .ui-form-item .ui-radio-group {
+  display: inline-block;
+  zoom: 1;
+  background-color: #eee;
+  padding: 0 5px;
+}
+.ui-form .ui-form-item .ui-radio-group input {
+  vertical-align: middle;
+}
 .ui-form .ui-form-item .ui-form-other {
   color: #222222;
   font-size: 12px;
@@ -1104,12 +1121,23 @@ a.ui-button {
 .dropdown {
   position: relative;
 }
+.dropdown .caret {
+  position: relative;
+  top: 10px;
+  margin: 0 5px;
+  width: 0;
+  height: 0;
+  border: 5px solid #fff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom: 0;
+}
 .dropdown .dropdown-menu {
   display: none;
   padding: 0;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   list-style: none;
   position: absolute;
   background-color: #fff;
@@ -1120,6 +1148,18 @@ a.ui-button {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+}
+.dropdown .dropdown-menu .arrow {
+  position: absolute;
+  top: -5px;
+  left: 75%;
+  width: 0;
+  height: 0;
+  border: 5px solid #fff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: 0;
+  display: block;
 }
 .dropdown .dropdown-menu li a {
   line-height: 35px;

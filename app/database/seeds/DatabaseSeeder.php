@@ -11,7 +11,22 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+        $this->call('PetTypeTableSeeder');
+
+        $this->command->info('Pet type table seeded!');
 	}
+
+}
+
+
+class PetTypeTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('pet_types')->delete();
+
+        PetType::create(array('name'=>'喵星人'));
+        PetType::create(array('name'=>'汪星人'));
+    }
 
 }

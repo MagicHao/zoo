@@ -4,6 +4,7 @@
  * Class Pet
  * @property string $id
  * @property string $user_id
+ * @property string $pet_type_id
  * @property string $name
  * @property string $gender
  * @property string $birthdate
@@ -15,6 +16,7 @@
  * @property User $user
  * @property Post[] $posts
  * @property PostImage[] $postImages
+ * @property PetType $petType
  */
 
 class Pet extends Model  {
@@ -33,21 +35,11 @@ class Pet extends Model  {
 	 */
 	protected $hidden = array('');
 
-    protected $fillable = array('gender', 'name', 'birthdate');
+    protected $fillable = array('pet_type_id', 'gender', 'name', 'birthdate');
 
     public function getAvatarPathAttribute($value)
     {
         return empty($this->avatar) ?  URL::asset('images/default-avatar.png') : Helper::instance()->getUploadURL($this->user_id, $this->avatar);
-    }
-
-    public function getGenderAttribute($value)
-    {
-        $genders = array(
-            's'=>'不清楚',
-            'm'=>'男娃',
-            'f'=>'女娃'
-        );
-        return $genders[$value];
     }
 
     public function user()
@@ -65,25 +57,9 @@ class Pet extends Model  {
         return $this->hasMany('PostImage');
     }
 
-    public function updateAvatar(\Symfony\Component\HttpFoundation\File\UploadedFile $file)
+    public function petType()
     {
-        $helper = Helper::instance();
-        $uploadDir = $helper->getUploadDir($this->user_id);
-        $tmpUploadDir = $uploadDir . 'tmp';
-        if ($this->avatar) {
-            File::delete($helper->getUploadURL($this->user_id, $this->avatar));
-        } elseif (!File::isDirectory($tmpUploadDir)) {
-            File::makeDirectory($tmpUploadDir);
-        }
-        $filename = $helper->makeFilename();
-        $fullFilename = $filename . '.' . $file->getClientOriginalExtension();
-        $file = $file->move($tmpUploadDir, $fullFilename);
-        $image = new ImageContainer($file->getPathname());
-        $filePath = $uploadDir . $fullFilename;
-        $image->smart_crop(400, 400)->save($filePath, 70);
-        File::deleteDirectory($tmpUploadDir);
-        $this->avatar = $fullFilename;
-        $this->save();
+        return $this->belongsTo('PetType');
     }
 
 }

@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="block">
-                <h2 class="ui-underline">碎碎念</h2>
+                <h1 class="ui-underline">碎碎念</h1>
                 @foreach ($posts as $post)
                 <div class="u-post-item ui-underline">
                     <div class="u-post-item-info">
@@ -47,7 +47,7 @@
         <div class="ui-grid-8">
             <div class="block">
 
-                <h2 class="ui-underline">{{$user->username}} 家的孩子</h2>
+                <h1 class="ui-underline">{{$user->username}} 家的孩子</h1>
                 <div class="u-pet-profile-box">
                     @if (!$user->pets->isEmpty())
                     @foreach ($user->pets as $pet)

@@ -27,8 +27,9 @@
         <li class="global-nav-bar-item"><a href="<?php echo URL::to('accounts/login') ?>">登录</a></li>
         @else
         <li class="global-nav-bar-item dropdown">
-            <a data-toggle="dropdown" href="<?php echo URL::to(join('/', array('u', Auth::user()->id))) ?>">{{Auth::user()->username}}</a>
+            <a data-toggle="dropdown" href="<?php echo URL::to(join('/', array('u', Auth::user()->id))) ?>">{{Auth::user()->username}}<i class="caret"></i></a>
             <ul class="dropdown-menu">
+                <li class="arrow"></li>
                 <li><a href="<?php echo URL::to(join('/', array('u', Auth::user()->id))) ?>">个人主页</a></li>
                 <li><a href="<?php echo URL::to('accounts/profile') ?>">账户设置</a></li>
                 <li><a href="<?php echo URL::to('accounts/logout') ?>">退出</a></li>

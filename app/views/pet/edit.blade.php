@@ -37,7 +37,11 @@
 
                 <div class="ui-form-item{{$errors->has('gender') ? ' ui-form-item-error' : ''}}">
                     <label class="ui-label" for="gender">这个娃是</label>
-                    {{Form::select('gender', array('m'=>'男娃', 'f'=>'女娃', 's'=>'不清楚'), $pet->gender)}}
+                    <div class="ui-form-text">
+                        @foreach (Helper::instance()->getGenders() as $key=>$gender)
+                        <div class="ui-radio-group"><span>{{$gender}}</span> {{Form::radio('gender', $key, $pet->gender == $key)}}</div>
+                        @endforeach
+                    </div>
                     @if ($errors->has('gender'))
                     <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('gender')}}</p>
                     @endif

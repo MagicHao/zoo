@@ -23,15 +23,31 @@
                     <label class="ui-label" for="name">这个娃叫</label>
                     <input class="ui-input" type="text" name="name" id="name" placeholder="娃的名字" value="<?php echo Input::old('name') ?>" required/>
                     @if ($errors->has('name'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('name')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('name')}}</p>
                     @endif
                 </div>
 
                 <div class="ui-form-item{{$errors->has('gender') ? ' ui-form-item-error' : ''}}">
                     <label class="ui-label" for="gender">这个娃是</label>
-                    {{Form::select('gender', array('m'=>'男娃', 'f'=>'女娃', 's'=>'不清楚'), Input::old('gender'))}}
+                    <div class="ui-form-text">
+                        @foreach (Helper::instance()->getGenders() as $key=>$gender)
+                        <div class="ui-radio-group"><span>{{$gender}}</span> {{Form::radio('gender', $key, Input::old('gender') == $key)}}</div>
+                        @endforeach
+                    </div>
                     @if ($errors->has('gender'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('gender')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('gender')}}</p>
+                    @endif
+                </div>
+
+                <div class="ui-form-item{{$errors->has('pet_type_id') ? ' ui-form-item-error' : ''}}">
+                    <label class="ui-label" for="gender">这个娃来自</label>
+                    <div class="ui-form-text">
+                        @foreach (Helper::instance()->getPetTypes() as $type)
+                        <div class="ui-radio-group"><span>{{$type->name}}</span> {{Form::radio('pet_type_id', $type->id, Input::old('pet_type_id') == $type->id)}}</div>
+                        @endforeach
+                    </div>
+                    @if ($errors->has('pet_type_id'))
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('pet_type_id')}}</p>
                     @endif
                 </div>
 
@@ -39,7 +55,7 @@
                     <label class="ui-label" for="birthdate">这个娃的生日是</label>
                     <input class="ui-input" type="text" name="birthdate" id="birthdate" placeholder="娃的生日" value="<?php echo Input::old('birthdate') ?>" required/>
                     @if ($errors->has('birthdate'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('birthdate')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('birthdate')}}</p>
                     @endif
                 </div>
 
@@ -50,7 +66,7 @@
                         <input class="ui-input" type="file" name="avatar" id="avatar" value="<?php echo Input::old('avatar') ?>"  required/>
                     </div>
                     @if ($errors->has('avatar'))
-                    <p class="ui-tiptext ui-tiptext-error">{{$errors->first('avatar')}}</p>
+                    <p class="ui-tiptext ui-tiptext-danger"><i class="ui-tiptext-icon"></i>{{$errors->first('avatar')}}</p>
                     @endif
                 </div>
 

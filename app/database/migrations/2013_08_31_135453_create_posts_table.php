@@ -18,9 +18,9 @@ class CreatePostsTable extends Migration {
             $table->integer('pet_id');
             $table->string('content', 256);
             $table->string('num_of_comments')->default(0);
-            $table->integer('num_of_likes')->default(0);
-            $table->integer('num_of_visits')->default(0);
-            $table->integer('num_of_images')->default(0);
+            $table->unsignedInteger('num_of_likes')->default(0);
+            $table->unsignedInteger('num_of_visits')->default(0);
+            $table->unsignedInteger('num_of_images')->default(0);
             $table->tinyInteger('status')->default(0);
             $table->softDeletes();
             $table->timestamps();

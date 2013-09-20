@@ -20,4 +20,13 @@ class Observer {
         $pet->user->save();
     }
 
+    public function saving($pet)
+    {
+        /* @var $pet \Pet */
+        if (\PetType::find($pet->pet_type_id)->count() == 0) {
+            return false;
+        }
+        return true;
+    }
+
 }
