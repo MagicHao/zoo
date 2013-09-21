@@ -412,6 +412,9 @@ a {
 a:hover {
   color: #00517a;
 }
+p {
+  margin: 0;
+}
 .text-muted {
   color: #aaaaaa;
 }
@@ -1561,6 +1564,7 @@ a.ui-button {
   margin-left: 50px;
   margin-bottom: 5px;
 }
-.u-post-item .u-post-item-content {
-  margin-bottom: 5px;
+.u-post-item .u-post-item-content p,
+.u-post-item .u-post-item-content img {
+  margin-top: 10px;
 }
