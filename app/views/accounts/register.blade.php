@@ -9,8 +9,12 @@
 <div id="content" class="ui-container">
     <div class="ui-grid-row">
         <div class="ui-grid-15 ui-grid-push-5">
-            <div class="block">
-                <h1 class="ui-underline">注册</h1>
+            <div class="content-main">
+                <div class="content-header">
+                    <div class="header-inner ui-underline">
+                        <h1>注册</h1>
+                    </div>
+                </div>
 
                 <?php echo Form::open(array('class'=>'ui-form')) ?>
 

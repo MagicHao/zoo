@@ -15,8 +15,12 @@
 <div id="content" class="ui-container">
     <div class="ui-grid-row">
         <div class="ui-grid-24">
-            <div class="block">
-                <h1 class="ui-underline">修改宠物</h1>
+            <div class="content-main">
+                <div class="content-header">
+                    <div class="header-inner ui-underline">
+                        <h1>修改宠物</h1>
+                    </div>
+                </div>
                 @if (Session::has('redirect_notice'))
                 <div class="ui-tiptext-container ui-tiptext-container-success">
                     <p class="ui-tiptext ui-tiptext-success">

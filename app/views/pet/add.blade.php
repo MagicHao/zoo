@@ -15,8 +15,12 @@
 <div id="content" class="ui-container">
     <div class="ui-grid-row">
         <div class="ui-grid-24">
-            <div class="block">
-                <h1 class="ui-underline">需要添加一个新的宠物吗？</h1>
+            <div class="content-main">
+                <div class="content-header">
+                    <div class="header-inner ui-underline">
+                        <h1>需要添加一个新的宠物吗？</h1>
+                    </div>
+                </div>
                 <?php echo Form::open(array('class'=>'ui-form', 'files'=>true)) ?>
 
                 <div class="ui-form-item{{$errors->has('name') ? ' ui-form-item-error' : ''}}">

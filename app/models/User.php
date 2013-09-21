@@ -126,4 +126,9 @@ class User extends Model implements UserInterface, RemindableInterface {
     {
         return count($this->pets) < self::PETS_MAX;
     }
+
+    public function getCustomGenderAttribute($value)
+    {
+        return Helper::instance()->getGenders()[$this->gender];
+    }
 }

@@ -15,7 +15,7 @@
                     <div class="block">
                         <div class="u-post-item">
                             <div class="u-post-item-info">
-                                <div class="u-post-item-avatar"><img src="{{$post->pet->avatarPath}}" alt="{{$post->pet->name}}" width="30" /></div>
+                                <div class="u-post-item-avatar"><img src="{{$post->pet->avatarPath}}" class="img-circled" alt="{{$post->pet->name}}" width="40" /></div>
                                 <div class="u-post-item-other"><span class="u-post-item-user-name">{{HTML::link(URL::route('u', array($post->user->id)), HTML::entities($post->user->username))}}</span> 家的 <span class="u-post-item-pet-name">{{HTML::link(URL::route('pet', array($post->pet->id)), HTML::entities($post->pet->name))}}</span> 在 <span class="u-post-item-time">{{$post->created_at->format('Y-m-d H:i')}}</span> 说:</div>
                             </div>
                             <div class="u-post-item-content">
@@ -36,14 +36,8 @@
     </div>
 </div>
 
-<style type="text/css">
-    .J-post-box-item{
-        width: 470px;
-    }
-</style>
-
 <script type="text/javascript">
-    seajs.use('site/u');
+    seajs.use('site/index');
 </script>
 
 @stop

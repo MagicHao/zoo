@@ -8,7 +8,7 @@
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
 // Scaffolding
-@body-bg:                         #ededeb;
+@body-bg:                         #e8e8e8;
 @text-color:                      @gray-dark;
 
 // Links
@@ -49,13 +49,13 @@
 // Based on 14px font-size and 1.428 line-height (~20px to start)
 
 @padding-base-vertical:          4px;
-@padding-base-horizontal:        15px;
+@padding-base-horizontal:        10px;
 
 @padding-large-vertical:         6px;
 @padding-large-horizontal:       20px;
 
 @padding-small-vertical:         2px;
-@padding-small-horizontal:       10px;
+@padding-small-horizontal:       5px;
 
 @line-height-large:              1.33;
 @line-height-small:              1.5;
@@ -66,8 +66,9 @@
 
 //nav
 @global-nav-bar-height:           40px;
-@global-nav-bar-background-color: #f47063;
-@header-background-color:         darken(#ededeb, 5%);
+@global-nav-bar-background-color: #0072c6;
+@header-background-color:         #fff;
+@header-border:                   #cecece;
 
 //form
 @input-bg:                       #fff;
@@ -106,7 +107,7 @@
 @btn-default-border:             #afafaf;
 
 @btn-primary-color:              #fff;
-@btn-primary-bg:                 #f57403;
+@btn-primary-bg:                 #0072c6;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
@@ -114,7 +115,7 @@
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
 @btn-warning-color:              #fff;
-@btn-warning-bg:                 #ddd;
+@btn-warning-bg:                 #f57403;
 @btn-warning-border:             darken(@btn-warning-bg, 5%);
 
 @btn-danger-color:               #fff;
@@ -133,8 +134,8 @@
 // Number of columns in the grid system
 @grid-columns:              24;
 // Padding, to be divided by two and applied to the left and right of all columns
-@grid-width:                950px;
-@grid-gutter-width:        10px;
+@grid-width:                940px;
+@grid-gutter-width:        20px;
 
 //  Tipbox
 
@@ -161,6 +162,32 @@
 @tipbox-message-color:              #fff;
 @tipbox-message-bg:                 #e5f2f8;
 @tipbox-message-border:             #b2e2ea;
+
+//states
+
+@state-primary-text:             @global-nav-bar-background-color;
+@state-primary-bg:               #dff0d8;
+@state-primary-border:           darken(spin(@state-primary-bg, -10), 5%);
+
+@state-success-text:             #468847;
+@state-success-bg:               #dff0d8;
+@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+
+@state-message-text:             #3a87ad;
+@state-message-bg:               #d9edf7;
+@state-message-border:           darken(spin(@state-message-bg, -10), 7%);
+
+@state-warning-text:             #c09853;
+@state-warning-bg:               #fcf8e3;
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+
+@state-danger-text:              #b94a48;
+@state-danger-bg:                #f2dede;
+@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
+
+@state-muted-text:               #aaa;
+@state-muted-bg:                 #eee;
+@state-muted-border:             darken(spin(@state-muted-bg, -10), 5%);
 
 // Iconography
 // -------------------------

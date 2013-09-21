@@ -15,8 +15,12 @@
 <div id="content" class="ui-container">
     <div class="ui-grid-row">
         <div class="ui-grid-16">
-            <div class="block">
-                <h1 class="ui-underline">{{$pet->name}} 的碎碎念</h1>
+            <div class="content-main">
+                <div class="content-header">
+                    <div class="header-inner ui-underline">
+                        <h1>{{$pet->name}} 的碎碎念</h1>
+                    </div>
+                </div>
                 @foreach ($posts as $post)
                 <div class="u-post-item ui-underline">
                     <div class="u-post-item-info">
@@ -36,8 +40,7 @@
         </div>
 
         <div class="ui-grid-8">
-            <div class="block">
-                <h1 class="ui-underline">{{$pet->name}} 的资料</h1>
+            <div class="content-main">
                 <div class="u-pet-profile-box">
                     <div class="u-pet-profile">
                         <div class="u-pet-profile-avatar">

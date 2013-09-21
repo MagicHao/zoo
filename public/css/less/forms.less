@@ -1,6 +1,15 @@
 @import "variables.less";
 @import "mixins.less";
 
+input, textarea{
+  border: 1px solid @input-border;
+  .box-shadow(0 0 2px rgba(0,0,0,0.2) inset);
+  &:focus{
+    border: 1px solid @global-nav-bar-background-color;
+    .box-shadow(0 0 8px rgba(82,168,236,.6));
+  }
+}
+
 .ui-form{
   img{
     vertical-align: bottom;
@@ -46,10 +55,8 @@
       height: @input-height-base - 5 * 2;
       line-height: @input-height-base - 5 * 2;
       padding: 5px;
-      border: 1px solid @input-border;
       width: 200px;
-      .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
-      .border-radius(2px);
+      .border-radius(@border-radius-base);
       &.ui-input-disabled{
       }
     }
@@ -87,13 +94,10 @@
     }
     .ui-textarea{
       .pull-left;
-      width: 210px;
       height: @input-height-base * 3;
       line-height: @input-height-base - 10;
       padding: 5px;
-      border: 1px solid @input-border;
       width: @input-height-base * 15;
-      .box-shadow(0 0 5px rgba(0,0,0,0.2) inset);
       .border-radius(@input-border)
     }
     select{
@@ -108,6 +112,8 @@
       background-color: #eee;
       padding: 0 5px;
       input{
+        border: none;
+        .box-shadow(none);
         vertical-align: middle;
       }
     }
