@@ -1103,9 +1103,9 @@ textarea:focus {
   line-height: 20px;
   padding: 5px;
   width: 450px;
-  -webkit-border-radius: #cccccc;
-  -moz-border-radius: #cccccc;
-  border-radius: #cccccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .ui-form .ui-form-item select {
   height: 30px;
